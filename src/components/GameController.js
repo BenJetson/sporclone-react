@@ -57,7 +57,6 @@ let GameController = ({ template }) => {
       }
     }
 
-    console.log("no match");
     return false;
   };
 
