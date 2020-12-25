@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Game from "./Game";
 
@@ -29,6 +29,21 @@ let GameController = ({ template }) => {
   const [otherGames] = useState(selectOtherGames([])); // FIXME
   const [score, setScore] = useState(0);
 
+  useEffect(() => {
+    if (wasStarted && !gameOver) {
+      let timerRef = setTimeout(() => {
+        setTimeLeft(timeLeft - 1);
+        if (timeLeft < 1) {
+          setGameOver(true);
+        }
+      }, 1000);
+
+      return () => {
+        clearTimeout(timerRef);
+      };
+    }
+  });
+
   let submitGuess = (guess) => {
     if (!wasStarted || gameOver) return false;
 
@@ -49,7 +64,6 @@ let GameController = ({ template }) => {
 
           if (updatedScore === questionStatus.length) {
             setGameOver(true);
-            // FIXME stop timer?
           }
 
           return true;
@@ -65,7 +79,6 @@ let GameController = ({ template }) => {
       setWasStarted(true);
     } else if (!gameOver) {
       setGameOver(true);
-      // FIXME stop timer?
     }
   };
 
