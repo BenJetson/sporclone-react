@@ -1,9 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid } from "@material-ui/core";
+import { Box, Grid, makeStyles } from "@material-ui/core";
 import AnswerCard from "./AnswerCard";
 
-let AnswerCardDeck = ({ questions, showKey = false }) => {
+const useStyles = makeStyles((theme) => ({
+  unblur: {
+    filter: "blur(0px) !important",
+  },
+  blur: {
+    filter: "blur(15px)",
+    transitionProperty: "filter",
+    transitionDuration: "2s",
+    transitionTimingFunction: "ease",
+  },
+}));
+
+let AnswerCardDeck = ({ questions, blur = true, showKey = false }) => {
+  const classes = useStyles();
+
   let cards = [];
   for (let question of questions) {
     cards.push({
@@ -15,13 +29,15 @@ let AnswerCardDeck = ({ questions, showKey = false }) => {
   }
 
   return (
-    <Grid container spacing={1}>
-      {cards.map((item) => (
-        <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
-          <AnswerCard {...item} />
-        </Grid>
-      ))}
-    </Grid>
+    <Box className={`${classes.blur} ${!blur ? classes.unblur : ""}`}>
+      <Grid container spacing={1}>
+        {cards.map((item) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
+            <AnswerCard {...item} />
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 };
 
