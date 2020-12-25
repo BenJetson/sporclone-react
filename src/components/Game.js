@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import {
   Box,
@@ -56,21 +56,6 @@ let Game = ({
 }) => {
   const classes = useStyles();
 
-  const inputRef = React.createRef();
-
-  const handleButton = () => {
-    onButton();
-
-    if (!wasStarted) {
-      // FIXME this is required to focus since it is disabled at the time
-      // when the button is pressed, but will not be enabled until the next
-      // render. Probably should do this another way.
-      inputRef.current.removeAttribute("disabled");
-
-      inputRef.current.focus();
-    }
-  };
-
   const handleGuess = (event) => {
     const input = event.target;
     const guess = input.value;
@@ -120,11 +105,7 @@ let Game = ({
         <Grid container spacing={2}>
           <Grid item xs={"auto"}>
             {!wasStarted ? (
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleButton}
-              >
+              <Button variant="contained" color="primary" onClick={onButton}>
                 Start Game
               </Button>
             ) : (
@@ -132,22 +113,23 @@ let Game = ({
                 variant="contained"
                 color="secondary"
                 disabled={gameOver}
-                onClick={handleButton}
+                onClick={onButton}
               >
                 Give Up
               </Button>
             )}
           </Grid>
           <Grid item xs>
-            <TextField
-              label="Enter Guess"
-              variant="outlined"
-              size="small"
-              fullWidth
-              disabled={!wasStarted || gameOver}
-              onKeyUp={handleGuess}
-              inputRef={inputRef}
-            />
+            {wasStarted && !gameOver && (
+              <TextField
+                label="Enter Guess"
+                variant="outlined"
+                size="small"
+                fullWidth
+                onKeyUp={handleGuess}
+                autoFocus
+              />
+            )}
           </Grid>
           <Grid item xs={2}>
             <Typography variant="h6" component="h4">
