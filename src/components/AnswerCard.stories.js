@@ -1,14 +1,14 @@
 import React from "react";
-import AnswerCard from "./AnswerCard.js";
+import AnswerCard from "./AnswerCard";
 
 export default {
   title: "AnswerCard",
   component: AnswerCard,
   argTypes: {
-    label: "text",
-    answer: "text",
-    showAnswer: "boolean",
-    markCorrect: "boolean",
+    label: { control: "text" },
+    answer: { control: "text" },
+    showAnswer: { control: "boolean" },
+    markCorrect: { control: "boolean" },
   },
 };
 
