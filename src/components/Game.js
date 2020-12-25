@@ -46,11 +46,21 @@ let Game = ({
   wasStarted,
   gameOver,
   timeLeft,
+  score,
+  onGuess,
+  onButton,
 }) => {
   const classes = useStyles();
 
-  let score = 0;
-  for (let q of questionStatus) q.isCorrect && score++;
+  const handleGuess = (event) => {
+    const input = event.target;
+    const guess = input.value;
+    const correct = onGuess(guess);
+
+    if (correct) {
+      input.value = "";
+    }
+  };
 
   return (
     <>
@@ -87,11 +97,16 @@ let Game = ({
         <Grid container spacing={2}>
           <Grid item xs={"auto"}>
             {!wasStarted ? (
-              <Button variant="contained" color="primary">
+              <Button variant="contained" color="primary" onClick={onButton}>
                 Start Game
               </Button>
             ) : (
-              <Button variant="contained" color="secondary" disabled={gameOver}>
+              <Button
+                variant="contained"
+                color="secondary"
+                disabled={gameOver}
+                onClick={onButton}
+              >
                 Give Up
               </Button>
             )}
@@ -102,6 +117,8 @@ let Game = ({
               variant="outlined"
               size="small"
               fullWidth
+              disabled={!wasStarted || gameOver}
+              onKeyUp={handleGuess}
             />
           </Grid>
           <Grid item xs={2}>
