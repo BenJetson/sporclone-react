@@ -29,18 +29,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-let AnswerCard = ({ label, answer, showAnswer = false, isCorrect = null }) => {
+let AnswerCard = ({
+  label,
+  answer,
+  showAnswer = false,
+  markCorrect = null,
+}) => {
   const classes = useStyles();
 
   let cardClass = classes.card;
-  if (isCorrect !== null) {
-    cardClass += " " + (isCorrect ? classes.correct : classes.incorrect);
+  if (markCorrect !== null) {
+    cardClass += " " + (markCorrect ? classes.correct : classes.incorrect);
   }
 
   return (
     <Card variant="outlined" className={cardClass}>
       <CardContent>
-        {isCorrect !== null && (isCorrect ? <CheckCircle /> : <Error />)}
+        {markCorrect !== null && (markCorrect ? <CheckCircle /> : <Error />)}
         <Typography element="p" variant="h6">
           {label}
         </Typography>
@@ -63,7 +68,7 @@ AnswerCard.propTypes = {
   label: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired,
   showAnswer: PropTypes.bool,
-  isCorrect: PropTypes.bool,
+  markCorrect: PropTypes.bool,
 };
 
 export default AnswerCard;

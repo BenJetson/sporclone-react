@@ -8,7 +8,7 @@ export default {
     label: "text",
     answer: "text",
     showAnswer: "boolean",
-    isCorrect: "boolean",
+    markCorrect: "boolean",
   },
 };
 
@@ -32,7 +32,7 @@ Correct.args = {
   label: "Ubuntu 80.04 LTS",
   answer: "Something Special",
   showAnswer: true,
-  isCorrect: true,
+  markCorrect: true,
 };
 
 export const Inorrect = Template.bind({});
@@ -40,5 +40,5 @@ Inorrect.args = {
   label: "Ubuntu 80.04 LTS",
   answer: "Something Special",
   showAnswer: true,
-  isCorrect: false,
+  markCorrect: false,
 };
