@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
   otherGames: {
     borderLeft: `1px solid ${theme.palette.grey[300]}`,
   },
+  timerWarning: {
+    color: theme.palette.error.main,
+    fontWeight: "bold",
+  },
 }));
 
 const Section = styled(Box)({
@@ -157,7 +161,9 @@ let Game = ({
             <Typography variant="h6" component="h4">
               Time
             </Typography>
-            <Typography>{secondsToTime(timeLeft)}</Typography>
+            <Typography className={timeLeft < 16 ? classes.timerWarning : null}>
+              {secondsToTime(timeLeft)}
+            </Typography>
           </Grid>
         </Grid>
       </Section>
