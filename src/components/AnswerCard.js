@@ -7,6 +7,7 @@ import {
   Typography,
   makeStyles,
 } from "@material-ui/core";
+import { HelpOutline, CheckCircle, Error } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -19,6 +20,12 @@ const useStyles = makeStyles((theme) => ({
   incorrect: {
     backgroundColor: theme.palette.error.light,
     color: theme.palette.error.contrastText,
+  },
+  answerContainer: {
+    paddingBottom: "16px !important",
+  },
+  answerText: {
+    lineHeight: 1,
   },
 }));
 
@@ -33,14 +40,19 @@ let AnswerCard = ({ label, answer, showAnswer = false, isCorrect = null }) => {
   return (
     <Card variant="outlined" className={cardClass}>
       <CardContent>
+        {isCorrect !== null && (isCorrect ? <CheckCircle /> : <Error />)}
         <Typography element="p" variant="h6">
-          {String(label)}
+          {label}
         </Typography>
       </CardContent>
       <Divider />
-      <CardContent>
-        <Typography variant="body1">
-          {showAnswer ? String(answer) : ""}
+      <CardContent className={classes.answerContainer}>
+        <Typography
+          variant="body1"
+          paragraph={false}
+          className={classes.answerText}
+        >
+          {showAnswer ? answer : <HelpOutline />}
         </Typography>
       </CardContent>
     </Card>
