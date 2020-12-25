@@ -52,6 +52,21 @@ let Game = ({
 }) => {
   const classes = useStyles();
 
+  const inputRef = React.createRef();
+
+  const handleButton = () => {
+    onButton();
+
+    if (!wasStarted) {
+      // FIXME this is required to focus since it is disabled at the time
+      // when the button is pressed, but will not be enabled until the next
+      // render. Probably should do this another way.
+      inputRef.current.removeAttribute("disabled");
+
+      inputRef.current.focus();
+    }
+  };
+
   const handleGuess = (event) => {
     const input = event.target;
     const guess = input.value;
@@ -97,7 +112,11 @@ let Game = ({
         <Grid container spacing={2}>
           <Grid item xs={"auto"}>
             {!wasStarted ? (
-              <Button variant="contained" color="primary" onClick={onButton}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleButton}
+              >
                 Start Game
               </Button>
             ) : (
@@ -105,7 +124,7 @@ let Game = ({
                 variant="contained"
                 color="secondary"
                 disabled={gameOver}
-                onClick={onButton}
+                onClick={handleButton}
               >
                 Give Up
               </Button>
@@ -119,6 +138,7 @@ let Game = ({
               fullWidth
               disabled={!wasStarted || gameOver}
               onKeyUp={handleGuess}
+              inputRef={inputRef}
             />
           </Grid>
           <Grid item xs={2}>
