@@ -1,0 +1,53 @@
+{
+  "title": "Ubuntu Versions",
+  "headline": "Name the codename for each version of Ubuntu.",
+  "image": {
+    "src": "https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png",
+    "alt": "Ubuntu Logo"
+  },
+  "time": 180,
+  "questions": [
+    {
+      "label": "20.04 LTS",
+      "answers": {
+        "display": "Focal Fossa",
+        "alternates": ["focal"]
+      }
+    },
+    {
+      "label": "18.04 LTS",
+      "answers": {
+        "display": "Bionic Beaver",
+        "alternates": ["bionic"]
+      }
+    },
+    {
+      "label": "16.04 LTS",
+      "answers": {
+        "display": "Xenial Xerus",
+        "alternates": ["xenial"]
+      }
+    },
+    {
+      "label": "14.04 LTS",
+      "answers": {
+        "display": "Trusty Tahr",
+        "alternates": ["trusty"]
+      }
+    },
+    {
+      "label": "12.04 LTS",
+      "answers": {
+        "display": "Precise Pangolin",
+        "alternates": ["precise"]
+      }
+    },
+    {
+      "label": "10.04 LTS",
+      "answers": {
+        "display": "Lucid Lynx",
+        "alternates": ["lucid"]
+      }
+    }
+  ]
+}
