@@ -11,42 +11,42 @@
       "label": "20.04 LTS",
       "answers": {
         "display": "Focal Fossa",
-        "alternates": ["focal"]
+        "accepts": ["focal"]
       }
     },
     {
       "label": "18.04 LTS",
       "answers": {
         "display": "Bionic Beaver",
-        "alternates": ["bionic"]
+        "accepts": ["bionic"]
       }
     },
     {
       "label": "16.04 LTS",
       "answers": {
         "display": "Xenial Xerus",
-        "alternates": ["xenial"]
+        "accepts": ["xenial"]
       }
     },
     {
       "label": "14.04 LTS",
       "answers": {
         "display": "Trusty Tahr",
-        "alternates": ["trusty"]
+        "accepts": ["trusty"]
       }
     },
     {
       "label": "12.04 LTS",
       "answers": {
         "display": "Precise Pangolin",
-        "alternates": ["precise"]
+        "accepts": ["precise"]
       }
     },
     {
       "label": "10.04 LTS",
       "answers": {
         "display": "Lucid Lynx",
-        "alternates": ["lucid"]
+        "accepts": ["lucid"]
       }
     }
   ]
