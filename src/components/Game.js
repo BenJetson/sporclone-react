@@ -83,7 +83,11 @@ let Game = ({
         <Grid container spacing={2}>
           {image && image.src && image.alt && (
             <Grid item xs={"auto"}>
-              <img class={classes.headerImg} src={image.src} alt={image.alt} />
+              <img
+                className={classes.headerImg}
+                src={image.src}
+                alt={image.alt}
+              />
             </Grid>
           )}
           <Grid item xs={8}>
@@ -95,7 +99,7 @@ let Game = ({
             <Typography variant="h6" component="h3">
               Other Games
             </Typography>
-            <Typography>
+            <Typography component="span">
               <ul>
                 {otherGames.map((g) => (
                   <li>
