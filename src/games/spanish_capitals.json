@@ -38,15 +38,15 @@
     {
       "label": "Colombia",
       "answers": {
-        "display": "Bogot&aacute;",
-        "accepts": ["Bogot&aacute;", "Bogot\u00e1", "Bogota"]
+        "display": "Bogot\u00e1",
+        "accepts": ["Bogot\u00e1", "Bogota"]
       }
     },
     {
       "label": "Costa Rica",
       "answers": {
-        "display": "San Jos&eacute;",
-        "accepts": ["San Jos&eacute;", "San Jos\u00e9", "San Jose"]
+        "display": "San Jos\u00e9",
+        "accepts": ["San Jos\u00e9", "San Jose"]
       }
     },
     {
@@ -122,8 +122,8 @@
     {
       "label": "Paraguay",
       "answers": {
-        "display": "Asunci&oacute;n",
-        "accepts": ["Asunci&oacute;n", "Asunci\u00f3n", "Asuncion"]
+        "display": "Asunci\u00f3n",
+        "accepts": ["Asunci\u00f3n", "Asuncion"]
       }
     },
     {
