@@ -103,7 +103,7 @@ let Game = ({
       </Section>
       <Divider />
       <Section>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} alignItems="center" justify="center">
           <Grid item xs={"auto"}>
             {!wasStarted ? (
               <Button variant="contained" color="primary" onClick={onButton}>
