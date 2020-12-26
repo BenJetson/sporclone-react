@@ -43,7 +43,9 @@ game["image"]["src"] = "https://www.bengodfrey.net/sporclone/" + image_element["
 game["image"]["alt"] = image_element["alt"]
 
 # DOM is in reverse order vs. key.
-tokens.reverse()
+print("Reverse answer key? Necessary if DOM is in descending order.")
+if input("y/n [n] >>>") == "y":
+    tokens.reverse()
 
 game["questions"] = []
 
