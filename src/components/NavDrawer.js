@@ -7,6 +7,7 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
+  Typography,
 } from "@material-ui/core";
 import GameIndex from "../games/index.json";
 import { Home } from "@material-ui/icons";
@@ -24,6 +25,9 @@ let NavDrawer = ({ open, onClose }) => {
       </List>
       <Divider />
       <List>
+        <ListItem dense={true}>
+          <Typography variant="overline">All Games</Typography>
+        </ListItem>
         {GameIndex.map((g, idx) => (
           <ListItem
             component={Link}
