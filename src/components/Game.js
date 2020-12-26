@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import {
   Box,
   Button,
-  Card,
-  CardContent,
   Divider,
   Grid,
   TextField,
@@ -92,7 +90,7 @@ let Game = ({
               <ul>
                 {otherGames.map((g) => (
                   <li>
-                    <a href={g.id}>{g.title}</a>
+                    <a href={g.id}>{g.name}</a>
                   </li>
                 ))}
               </ul>
