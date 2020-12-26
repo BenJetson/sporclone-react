@@ -129,4 +129,32 @@ let GameController = ({ gameIdx, template, allGames }) => {
   );
 };
 
+GameController.propTypes = {
+  gameIdx: PropTypes.number.isRequired,
+  template: PropTypes.shape({
+    time: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    headline: PropTypes.string.isRequired,
+    image: PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+    }),
+    questions: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        answers: PropTypes.shape({
+          display: PropTypes.string.isRequired,
+          accepts: PropTypes.arrayOf(PropTypes.string).isRequired,
+        }).isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
+  allGames: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      id: PropTypes.string,
+    })
+  ).isRequired,
+};
+
 export default GameController;

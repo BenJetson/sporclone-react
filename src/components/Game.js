@@ -164,4 +164,32 @@ let Game = ({
   );
 };
 
+Game.propTypes = {
+  headline: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+  }),
+  questionStatus: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      answer: PropTypes.string.isRequired,
+      accepts: PropTypes.arrayOf(PropTypes.string).isRequired,
+      isCorrect: PropTypes.bool.isRequired,
+    })
+  ).isRequired,
+  otherGames: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      id: PropTypes.string,
+    })
+  ).isRequired,
+  wasStarted: PropTypes.bool.isRequired,
+  gameOver: PropTypes.bool.isRequired,
+  timeLeft: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
+  onGuess: PropTypes.func.isRequired,
+  onButton: PropTypes.func.isRequired,
+};
+
 export default Game;
