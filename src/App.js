@@ -21,7 +21,7 @@ let App = () => {
               // of doing it at build time
               let game = require(`./games/${g.id}.json`);
               return (
-                <Route path={`/game/${g.id}`}>
+                <Route path={`/game/${g.id}`} key={idx}>
                   <GameController
                     gameIdx={idx}
                     template={game}
@@ -30,7 +30,7 @@ let App = () => {
                 </Route>
               );
             })}
-            <Route path="/">
+            <Route path="/" key="home">
               <Home />
             </Route>
           </Switch>

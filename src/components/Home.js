@@ -15,8 +15,8 @@ let Home = () => (
     <Typography variant="h2">Welcome to Sporclone!</Typography>
     <Typography>Select a game to play from the list below.</Typography>
     <List>
-      {GameIndex.map((g) => (
-        <ListItem component={Link} button to={`/game/${g.id}`}>
+      {GameIndex.map((g, idx) => (
+        <ListItem component={Link} button to={`/game/${g.id}`} key={idx}>
           <ListItemText primary={g.name} />
         </ListItem>
       ))}
