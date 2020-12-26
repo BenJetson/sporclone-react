@@ -13,6 +13,7 @@ import { Menu as MenuIcon } from "@material-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
 
 import NavDrawer from "./NavDrawer";
+import { BaseURL } from "../Const";
 
 const useStyles = makeStyles((theme) => ({
   navbar: {
@@ -41,7 +42,7 @@ let NavBar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="h1">
-            <Link to="/" component={RouterLink} color="inherit">
+            <Link to={BaseURL} component={RouterLink} color="inherit">
               Sporclone
             </Link>
           </Typography>

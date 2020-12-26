@@ -5,13 +5,9 @@ import { Container, ThemeProvider } from "@material-ui/core";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Theme from "./Theme";
+import { BaseURL } from "./Const";
 
 import GameLoader from "./components/GameLoader";
-
-let baseUrl = "/sporclone-react";
-if (process.env.NODE_ENV !== "production") {
-  baseUrl = "";
-}
 
 let App = () => {
   return (
@@ -19,7 +15,7 @@ let App = () => {
       <Router>
         <NavBar />
         <Container>
-          <Route path={baseUrl}>
+          <Route path={BaseURL}>
             <Switch>
               <Route path="/game/:gameId" children={<GameLoader />} />
               <Route path="/" key="home">
