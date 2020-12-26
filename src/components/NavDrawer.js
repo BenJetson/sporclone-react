@@ -1,0 +1,37 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  Divider,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+} from "@material-ui/core";
+import GameIndex from "../games/index.json";
+import { Home } from "@material-ui/icons";
+
+let NavDrawer = ({ open, onClose }) => {
+  return (
+    <Drawer open={open} onClose={onClose}>
+      <List>
+        <ListItem component={Link} button to={"/"}>
+          <ListItemIcon>
+            <Home />
+          </ListItemIcon>
+          <ListItemText primary="Home" />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        {GameIndex.map((g, idx) => (
+          <ListItem component={Link} button to={`/game/${g.id}`} key={idx}>
+            <ListItemText primary={g.name} />
+          </ListItem>
+        ))}
+      </List>
+    </Drawer>
+  );
+};
+
+export default NavDrawer;
