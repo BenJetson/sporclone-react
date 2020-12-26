@@ -16,6 +16,10 @@ export let makeInitialQuestionStatus = (questions) => {
 };
 
 let selectOtherGames = (currentIdx, allGames) => {
+  if (!allGames || !Array.isArray(allGames)) {
+    return [];
+  }
+
   const maxCount = 3;
   // Must subtract one for the current game.
   if (allGames.length - 1 <= maxCount) {
@@ -39,14 +43,22 @@ let selectOtherGames = (currentIdx, allGames) => {
 };
 
 let GameController = ({ gameIdx, template, allGames }) => {
-  const [questionStatus, setQuestionStatus] = useState(
-    makeInitialQuestionStatus(template.questions)
-  );
-  const [timeLeft, setTimeLeft] = useState(template.time);
+  const [questionStatus, setQuestionStatus] = useState([]);
+  const [timeLeft, setTimeLeft] = useState(0);
   const [wasStarted, setWasStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [otherGames] = useState(selectOtherGames(gameIdx, allGames));
+  const [otherGames, setOtherGames] = useState([]);
   const [score, setScore] = useState(0);
+
+  // Reset the game state when the props change.
+  useEffect(() => {
+    setQuestionStatus(makeInitialQuestionStatus(template.questions));
+    setTimeLeft(template.time);
+    setWasStarted(false);
+    setGameOver(false);
+    setOtherGames(selectOtherGames(gameIdx, allGames));
+    setScore(0);
+  }, [gameIdx, template, allGames]);
 
   useEffect(() => {
     if (wasStarted && !gameOver) {
