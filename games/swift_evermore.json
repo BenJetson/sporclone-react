@@ -1,0 +1,116 @@
+{
+  "time": 120,
+  "title": "evermore Album",
+  "headline": "Name all the song titles from Taylor Swift's album: \"evermore\".",
+  "image": {
+    "src": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0a/Taylor_Swift_-_Evermore.png/220px-Taylor_Swift_-_Evermore.png",
+    "alt": "evermore Album Art"
+  },
+  "questions": [
+    {
+      "label": "Track 1",
+      "answers": {
+        "display": "Willow",
+        "accepts": ["willow"]
+      }
+    },
+    {
+      "label": "Track 2",
+      "answers": {
+        "display": "Champagne Problems",
+        "accepts": ["champagne problems"]
+      }
+    },
+    {
+      "label": "Track 3",
+      "answers": {
+        "display": "Gold Rush",
+        "accepts": ["gold rush"]
+      }
+    },
+    {
+      "label": "Track 4",
+      "answers": {
+        "display": "Tis the Damn Season",
+        "accepts": ["tis the damn season"]
+      }
+    },
+    {
+      "label": "Track 5",
+      "answers": {
+        "display": "Tolerate It",
+        "accepts": ["tolerate it"]
+      }
+    },
+    {
+      "label": "Track 6",
+      "answers": {
+        "display": "No Body, No Crime",
+        "accepts": ["no body, no crime", "no body no crime"]
+      }
+    },
+    {
+      "label": "Track 7",
+      "answers": {
+        "display": "Happiness",
+        "accepts": ["happiness"]
+      }
+    },
+    {
+      "label": "Track 8",
+      "answers": {
+        "display": "Dorothea",
+        "accepts": ["dorothea"]
+      }
+    },
+    {
+      "label": "Track 9",
+      "answers": {
+        "display": "Coney Island",
+        "accepts": ["coney island", "cony island"]
+      }
+    },
+    {
+      "label": "Track 10",
+      "answers": {
+        "display": "Ivy",
+        "accepts": ["ivy"]
+      }
+    },
+    {
+      "label": "Track 11",
+      "answers": {
+        "display": "Cowboy Like Me",
+        "accepts": ["cowboy like me"]
+      }
+    },
+    {
+      "label": "Track 12",
+      "answers": {
+        "display": "Long Story Short",
+        "accepts": ["long story short"]
+      }
+    },
+    {
+      "label": "Track 13",
+      "answers": {
+        "display": "Marjorie",
+        "accepts": ["marjorie"]
+      }
+    },
+    {
+      "label": "Track 14",
+      "answers": {
+        "display": "Closure",
+        "accepts": ["closure"]
+      }
+    },
+    {
+      "label": "Track 15",
+      "answers": {
+        "display": "Evermore",
+        "accepts": ["evermore"]
+      }
+    }
+  ]
+}

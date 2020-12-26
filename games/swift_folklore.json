@@ -1,0 +1,126 @@
+{
+  "time": 120,
+  "title": "folklore Album",
+  "headline": "Name all the song titles from Taylor Swift's album: \"folklore\".",
+  "image": {
+    "src": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f8/Taylor_Swift_-_Folklore.png/220px-Taylor_Swift_-_Folklore.png",
+    "alt": "folklore Album Art"
+  },
+  "questions": [
+    {
+      "label": "Track 1",
+      "answers": {
+        "display": "The 1",
+        "accepts": ["the 1", "the one"]
+      }
+    },
+    {
+      "label": "Track 2",
+      "answers": {
+        "display": "Cardigan",
+        "accepts": ["cardigan", "cardigain"]
+      }
+    },
+    {
+      "label": "Track 3",
+      "answers": {
+        "display": "The Last Great American Dynasty",
+        "accepts": [
+          "the last great american dynasty",
+          "last great american dynasty"
+        ]
+      }
+    },
+    {
+      "label": "Track 4",
+      "answers": {
+        "display": "Exile",
+        "accepts": ["exile"]
+      }
+    },
+    {
+      "label": "Track 5",
+      "answers": {
+        "display": "My Tears Ricochet",
+        "accepts": ["my tears ricochet"]
+      }
+    },
+    {
+      "label": "Track 6",
+      "answers": {
+        "display": "Mirrorball",
+        "accepts": ["mirrorball"]
+      }
+    },
+    {
+      "label": "Track 7",
+      "answers": {
+        "display": "Seven",
+        "accepts": ["seven", "7"]
+      }
+    },
+    {
+      "label": "Track 8",
+      "answers": {
+        "display": "August",
+        "accepts": ["august"]
+      }
+    },
+    {
+      "label": "Track 9",
+      "answers": {
+        "display": "This Is Me Trying",
+        "accepts": ["this is me trying"]
+      }
+    },
+    {
+      "label": "Track 10",
+      "answers": {
+        "display": "Illicit Affairs",
+        "accepts": ["illicit affairs"]
+      }
+    },
+    {
+      "label": "Track 11",
+      "answers": {
+        "display": "Invisible String",
+        "accepts": ["invisible string"]
+      }
+    },
+    {
+      "label": "Track 12",
+      "answers": {
+        "display": "Mad Woman",
+        "accepts": ["mad woman"]
+      }
+    },
+    {
+      "label": "Track 13",
+      "answers": {
+        "display": "Epiphany",
+        "accepts": ["epiphany"]
+      }
+    },
+    {
+      "label": "Track 14",
+      "answers": {
+        "display": "Betty",
+        "accepts": ["betty"]
+      }
+    },
+    {
+      "label": "Track 15",
+      "answers": {
+        "display": "Peace",
+        "accepts": ["peace"]
+      }
+    },
+    {
+      "label": "Track 16",
+      "answers": {
+        "display": "Hoax`",
+        "accepts": ["hoax"]
+      }
+    }
+  ]
+}
