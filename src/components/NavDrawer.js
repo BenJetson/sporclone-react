@@ -11,13 +11,12 @@ import {
 } from "@material-ui/core";
 import GameIndex from "../games/index.json";
 import { Home } from "@material-ui/icons";
-import { BaseURL } from "../Const";
 
 let NavDrawer = ({ open, onClose }) => {
   return (
     <Drawer open={open} onClose={onClose}>
       <List>
-        <ListItem component={Link} button to={BaseURL} onClick={onClose}>
+        <ListItem component={Link} button to={"/"} onClick={onClose}>
           <ListItemIcon>
             <Home />
           </ListItemIcon>
@@ -33,7 +32,7 @@ let NavDrawer = ({ open, onClose }) => {
           <ListItem
             component={Link}
             button
-            to={`${BaseURL}/game/${g.id}`}
+            to={`/game/${g.id}`}
             onClick={onClose}
             key={idx}
           >
