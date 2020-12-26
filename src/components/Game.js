@@ -123,6 +123,7 @@ let Game = ({
                 label="Enter Guess"
                 variant="outlined"
                 size="small"
+                color="secondary"
                 fullWidth
                 onKeyUp={handleGuess}
                 autoFocus
