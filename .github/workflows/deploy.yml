@@ -35,4 +35,7 @@ jobs:
       - name: Build and Deploy
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: yarn deploy
+        run: |
+          git config --global user.name "Ben Godfrey (via Deploy)"
+          git config --global user.email "BenJetson@users.noreply.github.com"
+          yarn deploy
