@@ -15,18 +15,37 @@ export let makeInitialQuestionStatus = (questions) => {
   return questionStatus;
 };
 
-let selectOtherGames = (gameList) => {
-  return []; // FIXME
+let selectOtherGames = (currentIdx, allGames) => {
+  const maxCount = 3;
+  // Must subtract one for the current game.
+  if (allGames.length <= maxCount - 1) {
+    return [
+      ...allGames.slice(0, currentIdx),
+      ...allGames.slice(currentIdx + 1),
+    ];
+  }
+
+  const selectedGames = {};
+  while (Object.keys(selectedGames).length < maxCount) {
+    let idx = Math.floor(Math.random() * allGames.length);
+    if (idx in selectedGames || idx === currentIdx) {
+      continue;
+    }
+
+    selectedGames[idx] = allGames[idx];
+  }
+
+  return Object.values(selectedGames);
 };
 
-let GameController = ({ template }) => {
+let GameController = ({ gameIdx, template, allGames }) => {
   const [questionStatus, setQuestionStatus] = useState(
     makeInitialQuestionStatus(template.questions)
   );
   const [timeLeft, setTimeLeft] = useState(template.time);
   const [wasStarted, setWasStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [otherGames] = useState(selectOtherGames([])); // FIXME
+  const [otherGames] = useState(selectOtherGames(gameIdx, allGames)); // FIXME
   const [score, setScore] = useState(0);
 
   useEffect(() => {

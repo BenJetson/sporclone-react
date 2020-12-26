@@ -32,15 +32,15 @@ Ubuntu.args = {
   image: UbuntuTemplate.image,
   otherGames: [
     {
-      title: "Cactus Types",
+      name: "Cactus Types",
       id: "cactus-types",
     },
     {
-      title: "Zoo Animals",
+      name: "Zoo Animals",
       id: "zoo-animals",
     },
     {
-      title: "Electoral Votes",
+      name: "Electoral Votes",
       id: "us-electoral",
     },
   ],
