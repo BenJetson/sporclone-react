@@ -1,9 +1,10 @@
 import React from "react";
-import { Container } from "@material-ui/core";
+import { Container, ThemeProvider } from "@material-ui/core";
 import GameController from "./GameController";
 
 import GameIndex from "../games/index";
 import UbuntuTemplate from "../games/ubuntu";
+import Theme from "../Theme";
 
 export default {
   title: "GameController",
@@ -16,9 +17,11 @@ export default {
 };
 
 const Template = (args) => (
-  <Container>
-    <GameController {...args} />
-  </Container>
+  <ThemeProvider theme={Theme}>
+    <Container>
+      <GameController {...args} />
+    </Container>
+  </ThemeProvider>
 );
 
 export const Ubuntu = Template.bind({});

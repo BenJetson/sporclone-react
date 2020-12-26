@@ -1,9 +1,10 @@
 import React from "react";
 import { makeInitialQuestionStatus } from "./GameController";
 import Game from "./Game";
-import { Container } from "@material-ui/core";
+import { Container, ThemeProvider } from "@material-ui/core";
 
 import UbuntuTemplate from "../games/ubuntu";
+import Theme from "../Theme";
 
 export default {
   title: "Game",
@@ -16,13 +17,16 @@ export default {
     wasStarted: { control: "boolean" },
     gameOver: { control: "boolean" },
     timeLeft: { control: "number" },
+    score: { control: "number" },
   },
 };
 
 const Template = (args) => (
-  <Container>
-    <Game {...args} />
-  </Container>
+  <ThemeProvider theme={Theme}>
+    <Container>
+      <Game {...args} />
+    </Container>
+  </ThemeProvider>
 );
 
 export const Ubuntu = Template.bind({});
@@ -47,4 +51,7 @@ Ubuntu.args = {
   wasStarted: false,
   gameOver: false,
   timeLeft: 185,
+  score: 0,
+  onGuess: () => {},
+  onButton: () => {},
 };
