@@ -32,7 +32,7 @@ let AnswerCardDeck = ({ questions, blur = true, showKey = false }) => {
     <Box className={`${classes.blur} ${!blur ? classes.unblur : ""}`}>
       <Grid container spacing={1}>
         {cards.map((card, idx) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={idx}>
+          <Grid item xs={6} sm={4} md={3} lg={2} key={idx}>
             <AnswerCard {...card} />
           </Grid>
         ))}
