@@ -11,6 +11,7 @@ import {
   styled,
 } from "@material-ui/core";
 import AnswerCardDeck from "./AnswerCardDeck";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   headerImg: {
@@ -92,8 +93,8 @@ let Game = ({
             <Typography component="span">
               <ul>
                 {otherGames.map((g) => (
-                  <li>
-                    <a href={g.id}>{g.name}</a>
+                  <li key={`other-${g.id}`}>
+                    <Link to={g.id}>{g.name}</Link>
                   </li>
                 ))}
               </ul>
