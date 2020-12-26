@@ -16,11 +16,6 @@ let findGameIdx = (gameId) => {
   return null;
 };
 
-let CenterBox = styled(Box)({
-  textAlign: "center",
-  paddingTop: "20vh",
-});
-
 let GameLoader = () => {
   const { gameId } = useParams();
 
@@ -60,13 +55,8 @@ let GameLoader = () => {
     );
   } else if (gameData === null) {
     return (
-      <Box>
-        <CenterBox>
-          <CircularProgress size="5em" style={{ marginBottom: "2em" }} />
-          <Typography variant="h3" component="h2">
-            Loading...
-          </Typography>
-        </CenterBox>
+      <Box style={{ textAlign: "center", marginTop: "25vmin" }}>
+        <CircularProgress size="30vmin" />
       </Box>
     );
   }
