@@ -18,7 +18,7 @@ export let makeInitialQuestionStatus = (questions) => {
 let selectOtherGames = (currentIdx, allGames) => {
   const maxCount = 3;
   // Must subtract one for the current game.
-  if (allGames.length <= maxCount - 1) {
+  if (allGames.length - 1 <= maxCount) {
     return [
       ...allGames.slice(0, currentIdx),
       ...allGames.slice(currentIdx + 1),
@@ -26,15 +26,14 @@ let selectOtherGames = (currentIdx, allGames) => {
   }
 
   const selectedGames = {};
-  // FIXME this loops forever ... bad math!
-  // while (Object.keys(selectedGames).length < maxCount) {
-  //   let idx = Math.floor(Math.random() * allGames.length);
-  //   if (idx in selectedGames || idx === currentIdx) {
-  //     continue;
-  //   }
+  while (Object.keys(selectedGames).length < maxCount) {
+    let idx = Math.floor(Math.random() * allGames.length);
+    if (idx in selectedGames || idx === currentIdx) {
+      continue;
+    }
 
-  //   selectedGames[idx] = allGames[idx];
-  // }
+    selectedGames[idx] = allGames[idx];
+  }
 
   return Object.values(selectedGames);
 };
