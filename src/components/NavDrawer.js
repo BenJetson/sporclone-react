@@ -15,7 +15,7 @@ let NavDrawer = ({ open, onClose }) => {
   return (
     <Drawer open={open} onClose={onClose}>
       <List>
-        <ListItem component={Link} button to={"/"}>
+        <ListItem component={Link} button to={"/"} onClick={onClose}>
           <ListItemIcon>
             <Home />
           </ListItemIcon>
@@ -25,7 +25,13 @@ let NavDrawer = ({ open, onClose }) => {
       <Divider />
       <List>
         {GameIndex.map((g, idx) => (
-          <ListItem component={Link} button to={`/game/${g.id}`} key={idx}>
+          <ListItem
+            component={Link}
+            button
+            to={`/game/${g.id}`}
+            onClick={onClose}
+            key={idx}
+          >
             <ListItemText primary={g.name} />
           </ListItem>
         ))}
