@@ -15,14 +15,14 @@ let App = () => {
       <Router>
         <NavBar />
         <Container>
-          <Route path={BaseURL}>
-            <Switch>
-              <Route path="/game/:gameId" children={<GameLoader />} />
-              <Route path="/" key="home">
-                <Home />
-              </Route>
-            </Switch>
-          </Route>
+          {/* <Route path={BaseURL}> */}
+          <Switch>
+            <Route path={`${BaseURL}/game/:gameId`} children={<GameLoader />} />
+            <Route path={BaseURL} key="home">
+              <Home />
+            </Route>
+          </Switch>
+          {/* </Route> */}
         </Container>
       </Router>
     </ThemeProvider>
