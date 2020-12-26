@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.error.main,
     fontWeight: "bold",
   },
+  center: {
+    textAlign: "center",
+  },
 }));
 
 const Section = styled(Box)({
@@ -130,7 +133,7 @@ let Game = ({
               />
             )}
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={2} className={classes.center}>
             <Typography variant="h6" component="h4">
               Score
             </Typography>
@@ -138,7 +141,7 @@ let Game = ({
               {score}/{questionStatus.length}
             </Typography>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={2} className={classes.center}>
             <Typography variant="h6" component="h4">
               Time
             </Typography>
