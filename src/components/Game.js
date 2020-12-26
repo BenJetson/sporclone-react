@@ -105,7 +105,7 @@ let Game = ({
       <Divider />
       <Section>
         <Grid container spacing={2} alignItems="center" justify="center">
-          <Grid item xs={"auto"}>
+          <Grid item xs={4} sm={"auto"} className={classes.center}>
             {!wasStarted ? (
               <Button variant="contained" color="primary" onClick={onButton}>
                 Start Game
@@ -121,7 +121,7 @@ let Game = ({
               </Button>
             )}
           </Grid>
-          <Grid item xs>
+          <Grid item xs={8} sm>
             {wasStarted && !gameOver && (
               <TextField
                 label="Enter Guess"
@@ -134,7 +134,7 @@ let Game = ({
               />
             )}
           </Grid>
-          <Grid item xs={2} className={classes.center}>
+          <Grid item xs={6} sm={2} className={classes.center}>
             <Typography variant="h6" component="h4">
               Score
             </Typography>
@@ -142,7 +142,7 @@ let Game = ({
               {score}/{questionStatus.length}
             </Typography>
           </Grid>
-          <Grid item xs={2} className={classes.center}>
+          <Grid item xs={6} sm={2} className={classes.center}>
             <Typography variant="h6" component="h4">
               Time
             </Typography>
