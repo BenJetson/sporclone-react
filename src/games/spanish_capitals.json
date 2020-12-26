@@ -1,0 +1,165 @@
+{
+  "time": 120,
+  "title": "Spanish Capitals",
+  "headline": "Name the 22 capitals of the Spanish speaking countries.",
+  "image": {
+    "src": "https://www.bengodfrey.net/sporclone/img/sombrero_cactus.png",
+    "alt": "quiz logo"
+  },
+  "questions": [
+    {
+      "label": "Argentina",
+      "answers": {
+        "display": "Buenos Aires",
+        "accepts": ["Buenos Aires"]
+      }
+    },
+    {
+      "label": "Bolivia 1",
+      "answers": {
+        "display": "La Paz",
+        "accepts": ["La Paz"]
+      }
+    },
+    {
+      "label": "Bolivia 2",
+      "answers": {
+        "display": "Sucre",
+        "accepts": ["Sucre"]
+      }
+    },
+    {
+      "label": "Chile",
+      "answers": {
+        "display": "Santiago",
+        "accepts": ["Santiago"]
+      }
+    },
+    {
+      "label": "Colombia",
+      "answers": {
+        "display": "Bogot&aacute;",
+        "accepts": ["Bogot&aacute;", "Bogot\u00e1", "Bogota"]
+      }
+    },
+    {
+      "label": "Costa Rica",
+      "answers": {
+        "display": "San Jos&eacute;",
+        "accepts": ["San Jos&eacute;", "San Jos\u00e9", "San Jose"]
+      }
+    },
+    {
+      "label": "Cuba",
+      "answers": {
+        "display": "Havana",
+        "accepts": ["Havana"]
+      }
+    },
+    {
+      "label": "Dominican Republic",
+      "answers": {
+        "display": "Santo Domingo",
+        "accepts": ["Santo Domingo"]
+      }
+    },
+    {
+      "label": "Ecuador",
+      "answers": {
+        "display": "Quito",
+        "accepts": ["Quito"]
+      }
+    },
+    {
+      "label": "El Salvador",
+      "answers": {
+        "display": "San Salvador",
+        "accepts": ["San Salvador"]
+      }
+    },
+    {
+      "label": "Equatorial Guinea",
+      "answers": {
+        "display": "Malabo",
+        "accepts": ["Malabo"]
+      }
+    },
+    {
+      "label": "Guatemala",
+      "answers": {
+        "display": "Guatemala City",
+        "accepts": ["Guatemala City", "Guatemala"]
+      }
+    },
+    {
+      "label": "Honduras",
+      "answers": {
+        "display": "Tegucigalpa",
+        "accepts": ["Tegucigalpa"]
+      }
+    },
+    {
+      "label": "Mexico",
+      "answers": {
+        "display": "Mexico City",
+        "accepts": ["Mexico City", "Mexico"]
+      }
+    },
+    {
+      "label": "Nicaragua",
+      "answers": {
+        "display": "Managua",
+        "accepts": ["Managua"]
+      }
+    },
+    {
+      "label": "Panama",
+      "answers": {
+        "display": "Panama City",
+        "accepts": ["Panama City", "Panama"]
+      }
+    },
+    {
+      "label": "Paraguay",
+      "answers": {
+        "display": "Asunci&oacute;n",
+        "accepts": ["Asunci&oacute;n", "Asunci\u00f3n", "Asuncion"]
+      }
+    },
+    {
+      "label": "Peru",
+      "answers": {
+        "display": "Lima",
+        "accepts": ["Lima"]
+      }
+    },
+    {
+      "label": "Puerto Rico",
+      "answers": {
+        "display": "San Juan",
+        "accepts": ["San Juan"]
+      }
+    },
+    {
+      "label": "Spain",
+      "answers": {
+        "display": "Madrid",
+        "accepts": ["Madrid"]
+      }
+    },
+    {
+      "label": "Uruguay",
+      "answers": {
+        "display": "Montevideo",
+        "accepts": ["Montevideo"]
+      }
+    },
+    {
+      "label": "Venezuela",
+      "answers": {
+        "display": "Caracas",
+        "accepts": ["Caracas"]
+      }
+    }
+  ]
+}

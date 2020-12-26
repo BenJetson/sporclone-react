@@ -1,0 +1,81 @@
+{
+  "time": 60,
+  "title": "Electoral Votes",
+  "headline": "Name the 10 US States with the most electoral votes.",
+  "image": {
+    "src": "https://www.bengodfrey.net/sporclone/img/uncle_sam.png",
+    "alt": "quiz logo"
+  },
+  "questions": [
+    {
+      "label": "1",
+      "answers": {
+        "display": "California",
+        "accepts": ["California", "CA"]
+      }
+    },
+    {
+      "label": "2",
+      "answers": {
+        "display": "Texas",
+        "accepts": ["Texas", "TX"]
+      }
+    },
+    {
+      "label": "3",
+      "answers": {
+        "display": "Florida",
+        "accepts": ["Florida", "FL"]
+      }
+    },
+    {
+      "label": "4",
+      "answers": {
+        "display": "New York",
+        "accepts": ["New York", "New Yourk", "NY"]
+      }
+    },
+    {
+      "label": "5",
+      "answers": {
+        "display": "Illinois",
+        "accepts": ["Illinois", "IL"]
+      }
+    },
+    {
+      "label": "6",
+      "answers": {
+        "display": "Pennsylvania",
+        "accepts": ["Pennsylvania", "PA"]
+      }
+    },
+    {
+      "label": "7",
+      "answers": {
+        "display": "Ohio",
+        "accepts": ["Ohio", "OH"]
+      }
+    },
+    {
+      "label": "8",
+      "answers": {
+        "display": "Georgia",
+        "accepts": ["Georgia", "GA"]
+      }
+    },
+    {
+      "label": "9",
+      "answers": {
+        "display": "Michigan",
+        "accepts": ["Michigan", "MI"]
+      }
+    },
+    {
+      "label": "10",
+      "answers": {
+        "display": "North Carolina",
+        "accepts": ["North Carolina", "NC"]
+      }
+    }
+  ]
+}

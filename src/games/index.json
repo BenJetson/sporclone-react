@@ -2,5 +2,13 @@
   {
     "name": "Ubuntu Versions",
     "id": "ubuntu"
+  },
+  {
+    "name": "Spanish Capitals",
+    "id": "spanish_capitals"
+  },
+  {
+    "name": "Electoral College",
+    "id": "electoral_votes"
   }
 ]
