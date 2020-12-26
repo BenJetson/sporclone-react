@@ -7,7 +7,7 @@ import NavBar from "./components/NavBar";
 import Theme from "./Theme";
 
 import GameIndex from "./games/index.json";
-import GameController from "./components/GameController";
+import GameLoader from "./components/GameLoader";
 
 let App = () => {
   return (
@@ -17,14 +17,11 @@ let App = () => {
         <Container>
           <Switch>
             {GameIndex.map((g, idx) => {
-              // TODO would be better to load these dynamically via AJAX instead
-              // of doing it at build time
-              let game = require(`./games/${g.id}.json`);
               return (
                 <Route path={`/game/${g.id}`} key={idx}>
-                  <GameController
+                  <GameLoader
+                    gameId={g.id}
                     gameIdx={idx}
-                    template={game}
                     allGames={GameIndex}
                   />
                 </Route>

@@ -26,14 +26,15 @@ let selectOtherGames = (currentIdx, allGames) => {
   }
 
   const selectedGames = {};
-  while (Object.keys(selectedGames).length < maxCount) {
-    let idx = Math.floor(Math.random() * allGames.length);
-    if (idx in selectedGames || idx === currentIdx) {
-      continue;
-    }
+  // FIXME this loops forever ... bad math!
+  // while (Object.keys(selectedGames).length < maxCount) {
+  //   let idx = Math.floor(Math.random() * allGames.length);
+  //   if (idx in selectedGames || idx === currentIdx) {
+  //     continue;
+  //   }
 
-    selectedGames[idx] = allGames[idx];
-  }
+  //   selectedGames[idx] = allGames[idx];
+  // }
 
   return Object.values(selectedGames);
 };
@@ -45,7 +46,7 @@ let GameController = ({ gameIdx, template, allGames }) => {
   const [timeLeft, setTimeLeft] = useState(template.time);
   const [wasStarted, setWasStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [otherGames] = useState(selectOtherGames(gameIdx, allGames)); // FIXME
+  const [otherGames] = useState(selectOtherGames(gameIdx, allGames));
   const [score, setScore] = useState(0);
 
   useEffect(() => {
@@ -61,7 +62,7 @@ let GameController = ({ gameIdx, template, allGames }) => {
         clearTimeout(timerRef);
       };
     }
-  });
+  }, [wasStarted, gameOver, timeLeft]);
 
   let submitGuess = (guess) => {
     if (!wasStarted || gameOver) return false;
