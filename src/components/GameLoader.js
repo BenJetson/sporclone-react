@@ -6,6 +6,7 @@ import { Box, CircularProgress, Typography } from "@material-ui/core";
 import { Error } from "@material-ui/icons";
 
 import GameIndex from "../games/index.json";
+import { BaseURL } from "../Const";
 
 let findGameIdx = (gameId) => {
   for (let i = 0; i < GameIndex.length; i++) {
@@ -35,7 +36,7 @@ let GameLoader = () => {
 
     (async () => {
       try {
-        const response = await fetch(`/games/${gameId}.json`);
+        const response = await fetch(`${BaseURL}/games/${gameId}.json`);
         const parsed = await response.json();
         setGameData(parsed);
       } catch {
