@@ -1,5 +1,6 @@
 {
   "name": "sporclone-react",
+  "homepage": "https://www.bengodfrey.net/sporclone-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
