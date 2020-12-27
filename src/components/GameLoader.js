@@ -17,7 +17,7 @@ let findGameIdx = (gameId) => {
   return null;
 };
 
-let GameLoader = () => {
+let GameLoader = ({ component: Component }) => {
   const { gameId } = useParams();
 
   const [gameIdx, setGameIdx] = useState(null);
@@ -48,11 +48,7 @@ let GameLoader = () => {
 
   if (gameData) {
     return (
-      <GameController
-        gameIdx={gameIdx}
-        allGames={GameIndex}
-        template={gameData}
-      />
+      <Component gameIdx={gameIdx} allGames={GameIndex} template={gameData} />
     );
   } else if (gameData === null) {
     return (

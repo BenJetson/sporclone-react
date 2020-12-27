@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Theme from "./Theme";
 
+import GameController from "./components/GameController";
 import GameLoader from "./components/GameLoader";
 
 let App = () => {
@@ -15,7 +16,10 @@ let App = () => {
         <NavBar />
         <Container>
           <Switch>
-            <Route path={"/game/:gameId"} children={<GameLoader />} />
+            <Route
+              path={"/game/:gameId"}
+              children={<GameLoader component={GameController} />}
+            />
             <Route path={"/"} key="home">
               <Home />
             </Route>
