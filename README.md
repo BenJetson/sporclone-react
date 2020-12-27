@@ -1,7 +1,7 @@
 # Sporclone: React Edition
 
 This web app is a recreation of my [previous Sporclone project][old-sporclone]
-using modern technologies.
+using modern technologies and material design.
 
 [old-sporclone]: https://github.com/BenJetson/sporclone
 
