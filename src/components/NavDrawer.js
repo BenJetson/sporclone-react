@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import { Home } from "@material-ui/icons";
 
-import GetGameIndex from "./GameIndex";
+import GetGameIndex from "./GameIndexLoader";
 
 let NavDrawer = ({ open, onClose }) => {
   const [allGames, setAllGames] = useState([]);

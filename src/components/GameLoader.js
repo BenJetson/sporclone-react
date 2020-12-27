@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Box, CircularProgress, Typography } from "@material-ui/core";
 import { Error } from "@material-ui/icons";
 
-import GetGameIndex from "./GameIndex";
+import GetGameIndex from "./GameIndexLoader";
 import { BaseURL } from "../Const";
 
 let GameLoader = ({ component: Component }) => {

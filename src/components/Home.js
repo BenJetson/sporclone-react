@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-import GetGameIndex from "./GameIndex";
+import GetGameIndex from "./GameIndexLoader";
 
 let Home = () => {
   const [allGames, setAllGames] = useState([]);
