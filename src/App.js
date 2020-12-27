@@ -21,8 +21,11 @@ let App = () => {
               path={"/game/:gameId"}
               children={<GameLoader component={GameController} />}
             />
+            <Route path={"/create"}>
+              <EditorController />
+            </Route>
             <Route
-              path={"/editor/:gameId"}
+              path={"/edit/:gameId"}
               children={<GameLoader component={EditorController} />}
             />
             <Route path={"/"} key="home">
