@@ -9,7 +9,7 @@ import {
   ListItemIcon,
   Typography,
 } from "@material-ui/core";
-import { Home } from "@material-ui/icons";
+import { Home, PlayArrow } from "@material-ui/icons";
 
 import GetGameIndex from "./GameIndexLoader";
 
@@ -45,6 +45,9 @@ let NavDrawer = ({ open, onClose }) => {
             onClick={onClose}
             key={idx}
           >
+            <ListItemIcon>
+              <PlayArrow />
+            </ListItemIcon>
             <ListItemText primary={g.name} />
           </ListItem>
         ))}
