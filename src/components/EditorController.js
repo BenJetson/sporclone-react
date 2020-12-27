@@ -51,8 +51,7 @@ let EditorController = ({}) => {
 
       let updatedGame = makeDeepCopyOfGame();
       if (["id", "title", "headline", "time"].includes(fieldName)) {
-        // FIXME this fails when you blank the field.
-        if (fieldName === "time") value = parseInt(value);
+        if (fieldName === "time") value = value !== "" ? parseInt(value) : 0;
 
         updatedGame[fieldName] = value;
       } else if (fieldName.includes("image")) {
