@@ -288,12 +288,14 @@ let Editor = ({
                   <IconButton
                     aria-label="move up"
                     onClick={moveQuestion(idx, "up")}
+                    disabled={idx === 0}
                   >
                     <ArrowUpward />
                   </IconButton>
                   <IconButton
                     aria-label="move down"
                     onClick={moveQuestion(idx, "down")}
+                    disabled={idx === game.questions.length - 1}
                   >
                     <ArrowDownward />
                   </IconButton>
