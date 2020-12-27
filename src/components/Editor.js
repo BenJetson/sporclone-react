@@ -22,6 +22,9 @@ const InputGroupCard = styled(Card)({
 let Editor = ({ game, updateGame }) => {
   return (
     <Box>
+      <Typography variant="subtitle1" gutterBottom={true}>
+        The presence of * indicates required fields.
+      </Typography>
       <InputGroupCard variant="outlined">
         <CardContent>
           <Typography variant="h5" component="h2" gutterBottom={true}>
@@ -34,13 +37,34 @@ let Editor = ({ game, updateGame }) => {
                 variant="outlined"
                 fullWidth
                 InputProps={{ style: { fontFamily: "monospace" } }}
+                helperText={
+                  "This is a globally unique identifier for this game. " +
+                  "It must consist of strictly lowercase alphanumeric " +
+                  "characters and underscores."
+                }
+                required
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TextField label="Title" variant="outlined" fullWidth />
+              <TextField
+                label="Title"
+                variant="outlined"
+                fullWidth
+                required
+                helperText="The shorter title of the game displayed in menus."
+              />
             </Grid>
             <Grid item xs={12}>
-              <TextField label="Headline" variant="outlined" fullWidth />
+              <TextField
+                label="Headline"
+                variant="outlined"
+                fullWidth
+                required
+                helperText={
+                  "The extended description of what the player is tasked " +
+                  "with entering."
+                }
+              />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField label="Image Source" variant="outlined" fullWidth />
@@ -63,6 +87,7 @@ let Editor = ({ game, updateGame }) => {
                 type="number"
                 variant="outlined"
                 fullWidth
+                required
               />
             </Grid>
           </Grid>
@@ -84,6 +109,7 @@ let Editor = ({ game, updateGame }) => {
                     variant="outlined"
                     label="Displayed Question"
                     fullWidth
+                    required
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -91,6 +117,7 @@ let Editor = ({ game, updateGame }) => {
                     variant="outlined"
                     label="Displayed Answer"
                     fullWidth
+                    required
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -98,6 +125,11 @@ let Editor = ({ game, updateGame }) => {
                     variant="outlined"
                     label="Accepted Answers"
                     fullWidth
+                    required
+                    helperText={
+                      "The list of accepted answers does not include the " +
+                      "displayed answer unless it is also included here."
+                    }
                   />
                 </Grid>
               </Grid>
