@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { v4 as makeUUID } from "uuid";
 import Editor from "./Editor";
 
 const makeBlankQuestion = () => ({
+  id: makeUUID().toUpperCase(),
   label: "",
   answers: {
     display: "",
@@ -47,6 +49,7 @@ let EditorController = ({}) => {
 
       let updatedGame = makeDeepCopyOfGame();
       if (["id", "title", "headline", "time"].includes(fieldName)) {
+        // FIXME this fails when you blank the field.
         if (fieldName === "time") value = parseInt(value);
 
         updatedGame[fieldName] = value;
@@ -69,13 +72,14 @@ let EditorController = ({}) => {
 
         // +2 to account for the extra dot after the ]
         fieldName = fieldName.substring(fieldName.lastIndexOf("]") + 2);
+        console.log(fieldName, !fieldName.includes("."));
 
         if (!fieldName.includes(".")) {
           updatedGame.questions[idx][fieldName] = value;
         } else if (fieldName === "answers.display") {
-          updatedGame.questions[idx]["display"] = value;
-        } else if (fieldName === "answers.accepts") {
-          updatedGame.questions[idx].answers = value;
+          updatedGame.questions[idx].answers.display = value;
+        } else if (fieldName === "answers.accept") {
+          updatedGame.questions[idx].answers.accept = value;
         } else {
           throw `Bad question field '${fieldName}' for attempted update.`;
         }
@@ -99,31 +103,35 @@ let EditorController = ({}) => {
   };
 
   const onMoveQuestion = (idx, direction) => {
-    let destIdx;
-    switch (direction) {
-      case "up":
-        destIdx = idx - 1;
-        break;
-      case "down":
-        destIdx = idx + 1;
-        break;
-      default:
-        throw `Invlid direction to move question: '${direction}'`;
-    }
+    return () => {
+      let destIdx;
+      switch (direction) {
+        case "up":
+          destIdx = idx - 1;
+          break;
+        case "down":
+          destIdx = idx + 1;
+          break;
+        default:
+          throw `Invlid direction to move question: '${direction}'`;
+      }
 
-    let updatedGame = makeDeepCopyOfGame();
+      let updatedGame = makeDeepCopyOfGame();
 
-    let placeholder = updatedGame.questions[destIdx];
-    updatedGame.questions[destIdx] = updatedGame.questions[idx];
-    updatedGame.questions[idx] = placeholder;
+      let placeholder = updatedGame.questions[destIdx];
+      updatedGame.questions[destIdx] = updatedGame.questions[idx];
+      updatedGame.questions[idx] = placeholder;
 
-    updateGame(updatedGame);
+      updateGame(updatedGame);
+    };
   };
 
   const onDeleteQuestion = (idx) => {
-    let updatedGame = makeDeepCopyOfGame();
-    updatedGame.questions.splice(idx, 1);
-    updateGame(updatedGame);
+    return () => {
+      let updatedGame = makeDeepCopyOfGame();
+      updatedGame.questions.splice(idx, 1);
+      updateGame(updatedGame);
+    };
   };
 
   const onSubmit = () => {

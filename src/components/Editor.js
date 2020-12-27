@@ -19,7 +19,30 @@ const InputGroupCard = styled(Card)({
   marginBottom: "2em",
 });
 
-let Editor = ({ game, updateGame }) => {
+let Editor = ({
+  game,
+  invalid,
+  updateField,
+  onSubmit,
+  addQuestion,
+  deleteQuestion,
+  moveQuestion,
+}) => {
+  const fieldHasError = (fieldName) => {
+    return invalid[fieldName] ? true : false;
+  };
+
+  const updateAcceptedAnswers = (fieldPrefix) => {
+    const doUpdate = updateField(`${fieldPrefix}.answers.accept`);
+    return (values) => {
+      doUpdate({
+        target: {
+          value: values,
+        },
+      });
+    };
+  };
+
   return (
     <Box>
       <Typography variant="subtitle1" gutterBottom={true}>
@@ -37,12 +60,16 @@ let Editor = ({ game, updateGame }) => {
                 variant="outlined"
                 fullWidth
                 InputProps={{ style: { fontFamily: "monospace" } }}
-                helperText={
-                  "This is a globally unique identifier for this game. " +
-                  "It must consist of strictly lowercase alphanumeric " +
-                  "characters and underscores."
-                }
                 required
+                helperText={
+                  invalid["id"] ??
+                  "This is a globally unique identifier for this game. " +
+                    "It must consist of strictly lowercase alphanumeric " +
+                    "characters and underscores."
+                }
+                value={game.id}
+                onChange={updateField("id")}
+                error={fieldHasError("id")}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -51,7 +78,13 @@ let Editor = ({ game, updateGame }) => {
                 variant="outlined"
                 fullWidth
                 required
-                helperText="The shorter title of the game displayed in menus."
+                helperText={
+                  invalid["title"] ??
+                  "The shorter title of the game displayed in menus."
+                }
+                value={game.title}
+                onChange={updateField("title")}
+                error={fieldHasError("title")}
               />
             </Grid>
             <Grid item xs={12}>
@@ -61,16 +94,38 @@ let Editor = ({ game, updateGame }) => {
                 fullWidth
                 required
                 helperText={
+                  invalid["headline"] ??
                   "The extended description of what the player is tasked " +
-                  "with entering."
+                    "with entering."
                 }
+                value={game.headline}
+                onChange={updateField("headline")}
+                error={fieldHasError("headline")}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TextField label="Image Source" variant="outlined" fullWidth />
+              <TextField
+                label="Image Source"
+                variant="outlined"
+                fullWidth
+                required
+                helperText={invalid["image.src"] ?? ""}
+                value={game.image.src}
+                onChange={updateField("image.src")}
+                error={fieldHasError("image.src")}
+              />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TextField label="Image Alt Text" variant="outlined" fullWidth />
+              <TextField
+                label="Image Alt Text"
+                variant="outlined"
+                fullWidth
+                required
+                helperText={invalid["image.alt"] ?? ""}
+                value={game.image.alt}
+                onChange={updateField("image.alt")}
+                error={fieldHasError("image.alt")}
+              />
             </Grid>
           </Grid>
         </CardContent>
@@ -88,6 +143,10 @@ let Editor = ({ game, updateGame }) => {
                 variant="outlined"
                 fullWidth
                 required
+                helperText={invalid["time"] ?? ""}
+                value={game.time}
+                onChange={updateField("time")}
+                error={fieldHasError("time")}
               />
             </Grid>
           </Grid>
@@ -98,57 +157,86 @@ let Editor = ({ game, updateGame }) => {
           <Typography variant="h5" component="h2" gutterBottom={true}>
             Questions
           </Typography>
-          <Card variant="outlined">
-            <CardContent>
-              <Typography variant="h6" component="h3" gutterBottom={true}>
-                Question 1
-              </Typography>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    variant="outlined"
-                    label="Displayed Question"
-                    fullWidth
-                    required
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    variant="outlined"
-                    label="Displayed Answer"
-                    fullWidth
-                    required
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <ChipInput
-                    variant="outlined"
-                    label="Accepted Answers"
-                    fullWidth
-                    required
-                    helperText={
-                      "The list of accepted answers does not include the " +
-                      "displayed answer unless it is also included here."
-                    }
-                  />
-                </Grid>
-              </Grid>
-            </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="delete">
-                <Delete />
-              </IconButton>
-              <IconButton aria-label="move up">
-                <ArrowUpward />
-              </IconButton>
-              <IconButton aria-label="move down">
-                <ArrowDownward />
-              </IconButton>
-            </CardActions>
-          </Card>
+          {game.questions.map((q, idx) => {
+            const fieldPrefix = `questions[${idx}]`;
+
+            return (
+              <Card variant="outlined" key={q.id}>
+                <CardContent>
+                  <Typography variant="h6" component="h3" gutterBottom={true}>
+                    Question {idx + 1}
+                  </Typography>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="outlined"
+                        label="Displayed Question"
+                        fullWidth
+                        required
+                        helperText={invalid[`${fieldPrefix}.label`] ?? ""}
+                        value={q.label}
+                        onChange={updateField(`${fieldPrefix}.label`)}
+                        error={fieldHasError(`${fieldPrefix}.label`)}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        variant="outlined"
+                        label="Displayed Answer"
+                        fullWidth
+                        required
+                        helperText={
+                          invalid[`${fieldPrefix}.answers.display`] ?? ""
+                        }
+                        value={q.answers.display}
+                        onChange={updateField(`${fieldPrefix}.answers.display`)}
+                        error={fieldHasError(`${fieldPrefix}.answers.display`)}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <ChipInput
+                        variant="outlined"
+                        label="Accepted Answers"
+                        fullWidth
+                        required
+                        helperText={
+                          invalid[`${fieldPrefix}.answers.accept`] ??
+                          "The list of accepted answers does not include the " +
+                            "displayed answer unless it is also included here."
+                        }
+                        defaultValue={q.answers.accept}
+                        onChange={updateAcceptedAnswers(fieldPrefix)}
+                        error={fieldHasError(`${fieldPrefix}.answers.accept`)}
+                        // force this to be clobbered entirely if game changes,
+                        // since we are using it in uncontrolled mode
+                        key={q.id}
+                      />
+                    </Grid>
+                  </Grid>
+                </CardContent>
+                <CardActions disableSpacing>
+                  <IconButton aria-label="delete" onClick={deleteQuestion(idx)}>
+                    <Delete />
+                  </IconButton>
+                  <IconButton
+                    aria-label="move up"
+                    onClick={moveQuestion(idx, "up")}
+                  >
+                    <ArrowUpward />
+                  </IconButton>
+                  <IconButton
+                    aria-label="move down"
+                    onClick={moveQuestion(idx, "down")}
+                  >
+                    <ArrowDownward />
+                  </IconButton>
+                </CardActions>
+              </Card>
+            );
+          })}
         </CardContent>
         <CardActions>
-          <IconButton aria-label="add question">
+          <IconButton aria-label="add question" onClick={addQuestion}>
             <Add />
           </IconButton>
         </CardActions>
