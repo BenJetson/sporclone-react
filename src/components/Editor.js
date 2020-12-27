@@ -161,7 +161,13 @@ let Editor = ({
             const fieldPrefix = `questions[${idx}]`;
 
             return (
-              <Card variant="outlined" key={q.id}>
+              <Card
+                variant="outlined"
+                key={q.id}
+                style={{
+                  marginBottom: idx !== game.questions.length - 1 ? "1em" : 0,
+                }}
+              >
                 <CardContent>
                   <Typography variant="h6" component="h3" gutterBottom={true}>
                     Question {idx + 1}
@@ -235,7 +241,7 @@ let Editor = ({
             );
           })}
         </CardContent>
-        <CardActions>
+        <CardActions disableSpacing>
           <IconButton aria-label="add question" onClick={addQuestion}>
             <Add />
           </IconButton>
