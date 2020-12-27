@@ -299,22 +299,26 @@ let Editor = ({
                     </IconButton>
                   </Tooltip>
                   <Tooltip title="Move Question Up">
-                    <IconButton
-                      aria-label="move up"
-                      onClick={moveQuestion(idx, "up")}
-                      disabled={idx === 0}
-                    >
-                      <ArrowUpward />
-                    </IconButton>
+                    <Box>
+                      <IconButton
+                        aria-label="move up"
+                        onClick={moveQuestion(idx, "up")}
+                        disabled={idx === 0}
+                      >
+                        <ArrowUpward />
+                      </IconButton>
+                    </Box>
                   </Tooltip>
                   <Tooltip title="Move Question Down">
-                    <IconButton
-                      aria-label="move down"
-                      onClick={moveQuestion(idx, "down")}
-                      disabled={idx === game.questions.length - 1}
-                    >
-                      <ArrowDownward />
-                    </IconButton>
+                    <Box>
+                      <IconButton
+                        aria-label="move down"
+                        onClick={moveQuestion(idx, "down")}
+                        disabled={idx === game.questions.length - 1}
+                      >
+                        <ArrowDownward />
+                      </IconButton>
+                    </Box>
                   </Tooltip>
                   <Tooltip title="Duplicate Question">
                     <IconButton
