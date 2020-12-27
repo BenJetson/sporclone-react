@@ -10,6 +10,7 @@ import {
   TextField,
   Typography,
   styled,
+  Tooltip,
 } from "@material-ui/core";
 import { Alert as BasicAlert, AlertTitle } from "@material-ui/lab";
 import ChipInput from "material-ui-chip-input";
@@ -289,44 +290,59 @@ let Editor = ({
                   </Grid>
                 </CardContent>
                 <CardActions disableSpacing>
-                  <IconButton aria-label="delete" onClick={deleteQuestion(idx)}>
-                    <Delete />
-                  </IconButton>
-                  <IconButton
-                    aria-label="move up"
-                    onClick={moveQuestion(idx, "up")}
-                    disabled={idx === 0}
-                  >
-                    <ArrowUpward />
-                  </IconButton>
-                  <IconButton
-                    aria-label="move down"
-                    onClick={moveQuestion(idx, "down")}
-                    disabled={idx === game.questions.length - 1}
-                  >
-                    <ArrowDownward />
-                  </IconButton>
-                  <IconButton
-                    aria-label="duplicate question"
-                    onClick={duplicateQuestion(idx)}
-                  >
-                    <FileCopy />
-                  </IconButton>
-                  <IconButton
-                    aria-label="add question above"
-                    onClick={addQuestion(idx)}
-                  >
-                    <Add />
-                  </IconButton>
+                  <Tooltip title="Delete">
+                    <IconButton
+                      aria-label="delete"
+                      onClick={deleteQuestion(idx)}
+                    >
+                      <Delete />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Move Question Up">
+                    <IconButton
+                      aria-label="move up"
+                      onClick={moveQuestion(idx, "up")}
+                      disabled={idx === 0}
+                    >
+                      <ArrowUpward />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Move Question Down">
+                    <IconButton
+                      aria-label="move down"
+                      onClick={moveQuestion(idx, "down")}
+                      disabled={idx === game.questions.length - 1}
+                    >
+                      <ArrowDownward />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Duplicate Question">
+                    <IconButton
+                      aria-label="duplicate question"
+                      onClick={duplicateQuestion(idx)}
+                    >
+                      <FileCopy />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Add Question Above">
+                    <IconButton
+                      aria-label="add question above"
+                      onClick={addQuestion(idx)}
+                    >
+                      <Add />
+                    </IconButton>
+                  </Tooltip>
                 </CardActions>
               </Card>
             );
           })}
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add question" onClick={addQuestion()}>
-            <Add />
-          </IconButton>
+          <Tooltip title="Add Question">
+            <IconButton aria-label="add question" onClick={addQuestion()}>
+              <Add />
+            </IconButton>
+          </Tooltip>
         </CardActions>
       </InputGroupCard>
 
