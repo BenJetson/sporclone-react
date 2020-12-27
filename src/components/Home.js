@@ -16,7 +16,7 @@ let Home = () => (
     <Typography>Select a game to play from the list below.</Typography>
     <List>
       {GameIndex.map((g, idx) => (
-        <ListItem component={Link} button to={`/game/${g.id}`} key={idx}>
+        <ListItem component={Link} button to={`/play/${g.id}`} key={idx}>
           <ListItemText primary={g.name} />
         </ListItem>
       ))}

@@ -32,7 +32,7 @@ let NavDrawer = ({ open, onClose }) => {
           <ListItem
             component={Link}
             button
-            to={`/game/${g.id}`}
+            to={`/play/${g.id}`}
             onClick={onClose}
             key={idx}
           >

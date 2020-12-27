@@ -18,7 +18,7 @@ let App = () => {
         <Container>
           <Switch>
             <Route
-              path={"/game/:gameId"}
+              path={"/play/:gameId"}
               children={<GameLoader component={GameController} />}
             />
             <Route path={"/create"}>
