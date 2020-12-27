@@ -23,8 +23,31 @@ const makeBlankGame = () => ({
   questions: [makeBlankQuestion()],
 });
 
-let EditorController = ({}) => {
-  const [game, updateGame] = useState(makeBlankGame());
+const makeGameEditable = (gameIdx, template, allGames) => {
+  if (!template) {
+    return null;
+  }
+
+  let id = allGames?.[gameIdx]?.id ?? null;
+  if (!id) {
+    return null;
+  }
+
+  let game = JSON.parse(JSON.stringify(template));
+
+  game.id = id;
+
+  for (let i = 0; i < game.questions.length; i++) {
+    game.questions[i].id = makeUUID().toUpperCase();
+  }
+
+  return game;
+};
+
+let EditorController = ({ gameIdx, template, allGames }) => {
+  const [game, updateGame] = useState(
+    makeGameEditable(gameIdx, template, allGames) ?? makeBlankGame()
+  );
   const [wasSubmitted, setWasSubmitted] = useState(false);
   const [invalid, updateInvalid] = useState({});
 
@@ -72,8 +95,8 @@ let EditorController = ({}) => {
           "This field cannot be blank.";
       }
 
-      if (g.questions[i].answers.accept.length < 1) {
-        updatedInvalid[`${fieldPrefix}.answers.accept`] =
+      if (g.questions[i].answers.accepts.length < 1) {
+        updatedInvalid[`${fieldPrefix}.answers.accepts`] =
           "Must have at least one accepted answer.";
       }
     }
@@ -123,8 +146,8 @@ let EditorController = ({}) => {
           updatedGame.questions[idx][fieldName] = value;
         } else if (fieldName === "answers.display") {
           updatedGame.questions[idx].answers.display = value;
-        } else if (fieldName === "answers.accept") {
-          updatedGame.questions[idx].answers.accept = value;
+        } else if (fieldName === "answers.accepts") {
+          updatedGame.questions[idx].answers.accepts = value;
         } else {
           throw `Bad question field '${fieldName}' for attempted update.`;
         }

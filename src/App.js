@@ -6,8 +6,9 @@ import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Theme from "./Theme";
 
-import GameController from "./components/GameController";
 import GameLoader from "./components/GameLoader";
+import GameController from "./components/GameController";
+import EditorController from "./components/EditorController";
 
 let App = () => {
   return (
@@ -19,6 +20,10 @@ let App = () => {
             <Route
               path={"/game/:gameId"}
               children={<GameLoader component={GameController} />}
+            />
+            <Route
+              path={"/editor/:gameId"}
+              children={<GameLoader component={EditorController} />}
             />
             <Route path={"/"} key="home">
               <Home />

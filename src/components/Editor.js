@@ -38,12 +38,22 @@ let Editor = ({
     return invalid[fieldName] ? true : false;
   };
 
-  const updateAcceptedAnswers = (fieldPrefix) => {
-    const doUpdate = updateField(`${fieldPrefix}.answers.accept`);
-    return (values) => {
+  const updateAcceptedAnswers = (fieldPrefix, values, op) => {
+    const doUpdate = updateField(`${fieldPrefix}.answers.accepts`);
+    return (chip, answerIdx = null) => {
+      let updatedValues = [...values];
+
+      if (op === "add") {
+        updatedValues.push(chip);
+      } else if (op === "delete") {
+        updatedValues.splice(answerIdx, 1);
+      } else {
+        throw `Invalid operation for accepted answer update: '${op}'.`;
+      }
+
       doUpdate({
         target: {
-          value: values,
+          value: updatedValues,
         },
       });
     };
@@ -250,16 +260,22 @@ let Editor = ({
                         fullWidth
                         required
                         helperText={
-                          invalid[`${fieldPrefix}.answers.accept`] ??
+                          invalid[`${fieldPrefix}.answers.accepts`] ??
                           "The list of accepted answers does not include the " +
                             "displayed answer unless it is also included here."
                         }
-                        defaultValue={q.answers.accept}
-                        onChange={updateAcceptedAnswers(fieldPrefix)}
-                        error={fieldHasError(`${fieldPrefix}.answers.accept`)}
-                        // force this to be clobbered entirely if game changes,
-                        // since we are using it in uncontrolled mode
-                        key={q.id}
+                        value={q.answers.accepts}
+                        onAdd={updateAcceptedAnswers(
+                          fieldPrefix,
+                          q.answers.accepts,
+                          "add"
+                        )}
+                        onDelete={updateAcceptedAnswers(
+                          fieldPrefix,
+                          q.answers.accepts,
+                          "delete"
+                        )}
+                        error={fieldHasError(`${fieldPrefix}.answers.accepts`)}
                       />
                     </Grid>
                   </Grid>
