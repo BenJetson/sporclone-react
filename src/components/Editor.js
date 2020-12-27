@@ -12,6 +12,7 @@ import {
   Grid,
   styled,
 } from "@material-ui/core";
+import { Alert as BasicAlert, AlertTitle } from "@material-ui/lab";
 import ChipInput from "material-ui-chip-input";
 import { Add, ArrowDownward, ArrowUpward, Delete } from "@material-ui/icons";
 
@@ -19,9 +20,14 @@ const InputGroupCard = styled(Card)({
   marginBottom: "2em",
 });
 
+const Alert = styled(BasicAlert)({
+  marginBottom: "1em",
+});
+
 let Editor = ({
   game,
   invalid,
+  wasSubmitted,
   updateField,
   onSubmit,
   addQuestion,
@@ -43,8 +49,30 @@ let Editor = ({
     };
   };
 
+  const isImageRequired = () =>
+    game.image.src.length > 0 || game.image.alt.length > 0;
+
   return (
     <Box>
+      {(Object.keys(invalid).length > 0 && (
+        <Alert severity="error">
+          <AlertTitle>Game Contains Errors</AlertTitle>
+          The game cannot be downloaded because either required fields are blank
+          or some field contains incorrect data.
+          <br />
+          Please review the highlighted fields and alert messages, resolve the
+          problems, and try to download again.
+          <br />
+          <br />
+          This alert will disappear automatically once the errors are resolved.
+        </Alert>
+      )) ||
+        (wasSubmitted && (
+          <Alert severity="success">
+            <AlertTitle>Game Ready</AlertTitle>
+            The game contains zero errors and is ready for download.
+          </Alert>
+        ))}
       <Typography variant="subtitle1" gutterBottom={true}>
         The presence of * indicates required fields.
       </Typography>
@@ -58,6 +86,7 @@ let Editor = ({
               <TextField
                 label="Game ID"
                 variant="outlined"
+                color="secondary"
                 fullWidth
                 InputProps={{ style: { fontFamily: "monospace" } }}
                 required
@@ -76,6 +105,7 @@ let Editor = ({
               <TextField
                 label="Title"
                 variant="outlined"
+                color="secondary"
                 fullWidth
                 required
                 helperText={
@@ -91,6 +121,7 @@ let Editor = ({
               <TextField
                 label="Headline"
                 variant="outlined"
+                color="secondary"
                 fullWidth
                 required
                 helperText={
@@ -107,8 +138,9 @@ let Editor = ({
               <TextField
                 label="Image Source"
                 variant="outlined"
+                color="secondary"
                 fullWidth
-                required
+                required={isImageRequired()}
                 helperText={invalid["image.src"] ?? ""}
                 value={game.image.src}
                 onChange={updateField("image.src")}
@@ -119,8 +151,9 @@ let Editor = ({
               <TextField
                 label="Image Alt Text"
                 variant="outlined"
+                color="secondary"
                 fullWidth
-                required
+                required={isImageRequired()}
                 helperText={invalid["image.alt"] ?? ""}
                 value={game.image.alt}
                 onChange={updateField("image.alt")}
@@ -141,6 +174,7 @@ let Editor = ({
                 label="Time Limit"
                 type="number"
                 variant="outlined"
+                color="secondary"
                 fullWidth
                 required
                 helperText={invalid["time"] ?? ""}
@@ -157,6 +191,13 @@ let Editor = ({
           <Typography variant="h5" component="h2" gutterBottom={true}>
             Questions
           </Typography>
+
+          {invalid["questions"] && (
+            <Alert severity="error" style={{ marginBottom: "1em" }}>
+              {invalid["questions"]}
+            </Alert>
+          )}
+
           {game.questions.map((q, idx) => {
             const fieldPrefix = `questions[${idx}]`;
 
@@ -176,6 +217,7 @@ let Editor = ({
                     <Grid item xs={12} sm={6}>
                       <TextField
                         variant="outlined"
+                        color="secondary"
                         label="Displayed Question"
                         fullWidth
                         required
@@ -188,6 +230,7 @@ let Editor = ({
                     <Grid item xs={12} sm={6}>
                       <TextField
                         variant="outlined"
+                        color="secondary"
                         label="Displayed Answer"
                         fullWidth
                         required
@@ -202,6 +245,7 @@ let Editor = ({
                     <Grid item xs={12}>
                       <ChipInput
                         variant="outlined"
+                        color="secondary"
                         label="Accepted Answers"
                         fullWidth
                         required
@@ -247,7 +291,8 @@ let Editor = ({
           </IconButton>
         </CardActions>
       </InputGroupCard>
-      <Button color="primary" onClick={onSubmit}>
+
+      <Button variant="contained" color="primary" onClick={onSubmit}>
         Download
       </Button>
     </Box>

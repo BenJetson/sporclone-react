@@ -7,7 +7,7 @@ const makeBlankQuestion = () => ({
   label: "",
   answers: {
     display: "",
-    accepts: [],
+    accept: [],
   },
 });
 
@@ -30,12 +30,56 @@ let EditorController = ({}) => {
 
   const makeDeepCopyOfGame = () => JSON.parse(JSON.stringify(game));
 
-  const validateGame = () => {
-    let hasProblem = false;
+  const validateGame = ({ g = game, force = false }) => {
+    if (!wasSubmitted && !force) {
+      return;
+    }
+
     let updatedInvalid = {};
 
+    for (let field of ["id", "title", "headline"]) {
+      if (g[field].length < 1) {
+        updatedInvalid[field] = "This field cannot be blank.";
+      }
+    }
+
+    if (g.image.src.length > 0 || g.image.alt.length > 0) {
+      for (let field of ["src", "alt"]) {
+        if (g.image[field].length < 1) {
+          updatedInvalid[`image.${field}`] =
+            "If one image field has a value, both must be filled.";
+        }
+      }
+    }
+
+    if (g.time < 15) {
+      updatedInvalid["time"] = "Time cannot be less than fifteen seconds.";
+    }
+
+    if (g.questions.length < 3) {
+      updatedInvalid["questions"] = "Must have a minumum of three questions.";
+    }
+
+    for (let i = 0; i < g.questions.length; i++) {
+      const fieldPrefix = `questions[${i}]`;
+
+      if (g.questions[i].label.length < 1) {
+        updatedInvalid[`${fieldPrefix}.label`] = "This field cannot be blank.";
+      }
+
+      if (g.questions[i].answers.display.length < 1) {
+        updatedInvalid[`${fieldPrefix}.answers.display`] =
+          "This field cannot be blank.";
+      }
+
+      if (g.questions[i].answers.accept.length < 1) {
+        updatedInvalid[`${fieldPrefix}.answers.accept`] =
+          "Must have at least one accepted answer.";
+      }
+    }
+
     updateInvalid(updatedInvalid);
-    return !hasProblem;
+    return Object.keys(updatedInvalid).length === 0;
   };
 
   /**
@@ -90,10 +134,7 @@ let EditorController = ({}) => {
 
       console.log(game, updatedGame);
       updateGame(updatedGame);
-
-      if (wasSubmitted) {
-        validateGame();
-      }
+      validateGame({ g: updatedGame });
     };
   };
 
@@ -101,6 +142,7 @@ let EditorController = ({}) => {
     let updatedGame = makeDeepCopyOfGame();
     updatedGame.questions.push(makeBlankQuestion());
     updateGame(updatedGame);
+    validateGame({ g: updatedGame });
   };
 
   const onMoveQuestion = (idx, direction) => {
@@ -124,6 +166,7 @@ let EditorController = ({}) => {
       updatedGame.questions[idx] = placeholder;
 
       updateGame(updatedGame);
+      validateGame({ g: updatedGame });
     };
   };
 
@@ -132,12 +175,16 @@ let EditorController = ({}) => {
       let updatedGame = makeDeepCopyOfGame();
       updatedGame.questions.splice(idx, 1);
       updateGame(updatedGame);
+      validateGame({ g: updatedGame });
     };
   };
 
   const onSubmit = () => {
     setWasSubmitted(true);
-    if (!validateGame()) {
+    if (!validateGame({ force: true })) {
+      // Scroll to the top of the page to show the error banner.
+      window.scrollTo(0, 0);
+
       return;
     }
 
@@ -168,6 +215,7 @@ let EditorController = ({}) => {
     <Editor
       game={game}
       invalid={invalid}
+      wasSubmitted={wasSubmitted}
       updateField={onFieldChange}
       onSubmit={onSubmit}
       addQuestion={onAddQuestion}
