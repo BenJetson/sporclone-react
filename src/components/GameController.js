@@ -42,7 +42,7 @@ let selectOtherGames = (currentIdx, allGames) => {
   return Object.values(selectedGames);
 };
 
-let GameController = ({ gameIdx, template, allGames }) => {
+let GameController = ({ gameId, gameIdx, template, allGames }) => {
   const [questionStatus, setQuestionStatus] = useState([]);
   const [timeLeft, setTimeLeft] = useState(0);
   const [wasStarted, setWasStarted] = useState(false);
@@ -115,6 +115,7 @@ let GameController = ({ gameIdx, template, allGames }) => {
 
   return (
     <Game
+      gameId={gameId}
       headline={template.headline}
       image={template?.image ?? null}
       questionStatus={questionStatus}

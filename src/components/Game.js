@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import AnswerCardDeck from "./AnswerCardDeck";
 import { Link } from "react-router-dom";
+import { Edit } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   headerImg: {
@@ -45,6 +46,7 @@ let secondsToTime = (t) => {
 };
 
 let Game = ({
+  gameId,
   headline,
   image,
   questionStatus,
@@ -159,6 +161,11 @@ let Game = ({
           blur={!wasStarted}
           showKey={gameOver}
         />
+      </Section>
+      <Section>
+        <Button component={Link} to={`/edit/${gameId}`} startIcon={<Edit />}>
+          Edit this Game
+        </Button>
       </Section>
     </>
   );

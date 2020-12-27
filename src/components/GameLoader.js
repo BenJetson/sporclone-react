@@ -49,7 +49,12 @@ let GameLoader = ({ component: Component }) => {
 
   if (gameData) {
     return (
-      <Component gameIdx={gameIdx} allGames={allGames} template={gameData} />
+      <Component
+        gameId={gameId}
+        gameIdx={gameIdx}
+        allGames={allGames}
+        template={gameData}
+      />
     );
   } else if (gameData === null) {
     return (
