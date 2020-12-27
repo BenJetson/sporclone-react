@@ -2,14 +2,13 @@ import React from "react";
 import {
   Box,
   Button,
-  Slider,
-  TextField,
   Card,
   CardActions,
   CardContent,
-  IconButton,
-  Typography,
   Grid,
+  IconButton,
+  TextField,
+  Typography,
   styled,
 } from "@material-ui/core";
 import { Alert as BasicAlert, AlertTitle } from "@material-ui/lab";

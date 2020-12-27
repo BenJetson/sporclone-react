@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import GameController from "./GameController";
 import { Box, CircularProgress, Typography } from "@material-ui/core";
 import { Error } from "@material-ui/icons";
 
