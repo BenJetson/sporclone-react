@@ -22,12 +22,12 @@ import {
   FileCopy,
 } from "@material-ui/icons";
 
-const InputGroupCard = styled(Card)({
-  marginBottom: "2em",
-});
-
 const Alert = styled(BasicAlert)({
   marginBottom: "1em",
+});
+
+const Section = styled(Box)({
+  margin: "2em 0",
 });
 
 let Editor = ({
@@ -95,260 +95,249 @@ let Editor = ({
       <Typography variant="subtitle1" gutterBottom={true}>
         The presence of * indicates required fields.
       </Typography>
-      <InputGroupCard variant="outlined">
-        <CardContent>
-          <Typography variant="h5" component="h2" gutterBottom={true}>
-            Header
-          </Typography>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                label="Game ID"
-                variant="outlined"
-                color="secondary"
-                fullWidth
-                InputProps={{ style: { fontFamily: "monospace" } }}
-                required
-                helperText={
-                  invalid["id"] ??
-                  "This is a globally unique identifier for this game. " +
-                    "It must consist of strictly lowercase alphanumeric " +
-                    "characters and underscores."
-                }
-                value={game.id}
-                onChange={updateField("id")}
-                error={fieldHasError("id")}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                label="Title"
-                variant="outlined"
-                color="secondary"
-                fullWidth
-                required
-                helperText={
-                  invalid["title"] ??
-                  "The shorter title of the game displayed in menus."
-                }
-                value={game.title}
-                onChange={updateField("title")}
-                error={fieldHasError("title")}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                label="Headline"
-                variant="outlined"
-                color="secondary"
-                fullWidth
-                required
-                helperText={
-                  invalid["headline"] ??
-                  "The extended description of what the player is tasked " +
-                    "with entering."
-                }
-                value={game.headline}
-                onChange={updateField("headline")}
-                error={fieldHasError("headline")}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                label="Image Source"
-                variant="outlined"
-                color="secondary"
-                fullWidth
-                required={isImageRequired()}
-                helperText={invalid["image.src"] ?? ""}
-                value={game.image.src}
-                onChange={updateField("image.src")}
-                error={fieldHasError("image.src")}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                label="Image Alt Text"
-                variant="outlined"
-                color="secondary"
-                fullWidth
-                required={isImageRequired()}
-                helperText={invalid["image.alt"] ?? ""}
-                value={game.image.alt}
-                onChange={updateField("image.alt")}
-                error={fieldHasError("image.alt")}
-              />
-            </Grid>
+      <Section>
+        <Typography variant="h5" component="h2" gutterBottom={true}>
+          Header
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Game ID"
+              variant="outlined"
+              color="secondary"
+              fullWidth
+              InputProps={{ style: { fontFamily: "monospace" } }}
+              required
+              helperText={
+                invalid["id"] ??
+                "This is a globally unique identifier for this game. " +
+                  "It must consist of strictly lowercase alphanumeric " +
+                  "characters and underscores."
+              }
+              value={game.id}
+              onChange={updateField("id")}
+              error={fieldHasError("id")}
+            />
           </Grid>
-        </CardContent>
-      </InputGroupCard>
-      <InputGroupCard variant="outlined">
-        <CardContent>
-          <Typography variant="h5" component="h2" gutterBottom={true}>
-            Game Settings
-          </Typography>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                label="Time Limit"
-                type="number"
-                variant="outlined"
-                color="secondary"
-                fullWidth
-                required
-                helperText={invalid["time"] ?? ""}
-                value={game.time}
-                onChange={updateField("time")}
-                error={fieldHasError("time")}
-              />
-            </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Title"
+              variant="outlined"
+              color="secondary"
+              fullWidth
+              required
+              helperText={
+                invalid["title"] ??
+                "The shorter title of the game displayed in menus."
+              }
+              value={game.title}
+              onChange={updateField("title")}
+              error={fieldHasError("title")}
+            />
           </Grid>
-        </CardContent>
-      </InputGroupCard>
-      <InputGroupCard variant="outlined">
-        <CardContent>
-          <Typography variant="h5" component="h2" gutterBottom={true}>
-            Questions
-          </Typography>
+          <Grid item xs={12}>
+            <TextField
+              label="Headline"
+              variant="outlined"
+              color="secondary"
+              fullWidth
+              required
+              helperText={
+                invalid["headline"] ??
+                "The extended description of what the player is tasked " +
+                  "with entering."
+              }
+              value={game.headline}
+              onChange={updateField("headline")}
+              error={fieldHasError("headline")}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Image Source"
+              variant="outlined"
+              color="secondary"
+              fullWidth
+              required={isImageRequired()}
+              helperText={invalid["image.src"] ?? ""}
+              value={game.image.src}
+              onChange={updateField("image.src")}
+              error={fieldHasError("image.src")}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Image Alt Text"
+              variant="outlined"
+              color="secondary"
+              fullWidth
+              required={isImageRequired()}
+              helperText={invalid["image.alt"] ?? ""}
+              value={game.image.alt}
+              onChange={updateField("image.alt")}
+              error={fieldHasError("image.alt")}
+            />
+          </Grid>
+        </Grid>
+      </Section>
+      <Section>
+        <Typography variant="h5" component="h2" gutterBottom={true}>
+          Game Settings
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Time Limit"
+              type="number"
+              variant="outlined"
+              color="secondary"
+              fullWidth
+              required
+              helperText={invalid["time"] ?? ""}
+              value={game.time}
+              onChange={updateField("time")}
+              error={fieldHasError("time")}
+            />
+          </Grid>
+        </Grid>
+      </Section>
+      <Section>
+        <Typography variant="h5" component="h2" gutterBottom={true}>
+          Questions
+        </Typography>
 
-          {invalid["questions"] && (
-            <Alert severity="error" style={{ marginBottom: "1em" }}>
-              {invalid["questions"]}
-            </Alert>
-          )}
+        {invalid["questions"] && (
+          <Alert severity="error" style={{ marginBottom: "1em" }}>
+            {invalid["questions"]}
+          </Alert>
+        )}
 
-          {game.questions.map((q, idx) => {
-            const fieldPrefix = `questions[${idx}]`;
+        {game.questions.map((q, idx) => {
+          const fieldPrefix = `questions[${idx}]`;
 
-            return (
-              <Card
-                variant="outlined"
-                key={q.id}
-                style={{
-                  marginBottom: idx !== game.questions.length - 1 ? "1em" : 0,
-                }}
-              >
-                <CardContent>
-                  <Typography variant="h6" component="h3" gutterBottom={true}>
-                    Question {idx + 1}
-                  </Typography>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        variant="outlined"
-                        color="secondary"
-                        label="Displayed Question"
-                        fullWidth
-                        required
-                        helperText={invalid[`${fieldPrefix}.label`] ?? ""}
-                        value={q.label}
-                        onChange={updateField(`${fieldPrefix}.label`)}
-                        error={fieldHasError(`${fieldPrefix}.label`)}
-                      />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        variant="outlined"
-                        color="secondary"
-                        label="Displayed Answer"
-                        fullWidth
-                        required
-                        helperText={
-                          invalid[`${fieldPrefix}.answers.display`] ?? ""
-                        }
-                        value={q.answers.display}
-                        onChange={updateField(`${fieldPrefix}.answers.display`)}
-                        error={fieldHasError(`${fieldPrefix}.answers.display`)}
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <ChipInput
-                        variant="outlined"
-                        color="secondary"
-                        label="Accepted Answers"
-                        fullWidth
-                        required
-                        helperText={
-                          invalid[`${fieldPrefix}.answers.accepts`] ??
-                          "The list of accepted answers does not include the " +
-                            "displayed answer unless it is also included here."
-                        }
-                        value={q.answers.accepts}
-                        onAdd={updateAcceptedAnswers(
-                          fieldPrefix,
-                          q.answers.accepts,
-                          "add"
-                        )}
-                        onDelete={updateAcceptedAnswers(
-                          fieldPrefix,
-                          q.answers.accepts,
-                          "delete"
-                        )}
-                        error={fieldHasError(`${fieldPrefix}.answers.accepts`)}
-                      />
-                    </Grid>
+          return (
+            <Card
+              variant="outlined"
+              key={q.id}
+              style={{
+                marginBottom: idx !== game.questions.length - 1 ? "1em" : 0,
+              }}
+            >
+              <CardContent>
+                <Typography variant="h6" component="h3" gutterBottom={true}>
+                  Question {idx + 1}
+                </Typography>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      variant="outlined"
+                      color="secondary"
+                      label="Displayed Question"
+                      fullWidth
+                      required
+                      helperText={invalid[`${fieldPrefix}.label`] ?? ""}
+                      value={q.label}
+                      onChange={updateField(`${fieldPrefix}.label`)}
+                      error={fieldHasError(`${fieldPrefix}.label`)}
+                    />
                   </Grid>
-                </CardContent>
-                <CardActions disableSpacing>
-                  <Tooltip title="Delete">
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      variant="outlined"
+                      color="secondary"
+                      label="Displayed Answer"
+                      fullWidth
+                      required
+                      helperText={
+                        invalid[`${fieldPrefix}.answers.display`] ?? ""
+                      }
+                      value={q.answers.display}
+                      onChange={updateField(`${fieldPrefix}.answers.display`)}
+                      error={fieldHasError(`${fieldPrefix}.answers.display`)}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <ChipInput
+                      variant="outlined"
+                      color="secondary"
+                      label="Accepted Answers"
+                      fullWidth
+                      required
+                      helperText={
+                        invalid[`${fieldPrefix}.answers.accepts`] ??
+                        "The list of accepted answers does not include the " +
+                          "displayed answer unless it is also included here."
+                      }
+                      value={q.answers.accepts}
+                      onAdd={updateAcceptedAnswers(
+                        fieldPrefix,
+                        q.answers.accepts,
+                        "add"
+                      )}
+                      onDelete={updateAcceptedAnswers(
+                        fieldPrefix,
+                        q.answers.accepts,
+                        "delete"
+                      )}
+                      error={fieldHasError(`${fieldPrefix}.answers.accepts`)}
+                    />
+                  </Grid>
+                </Grid>
+              </CardContent>
+              <CardActions disableSpacing>
+                <Tooltip title="Delete">
+                  <IconButton aria-label="delete" onClick={deleteQuestion(idx)}>
+                    <Delete />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Move Question Up">
+                  <Box>
                     <IconButton
-                      aria-label="delete"
-                      onClick={deleteQuestion(idx)}
+                      aria-label="move up"
+                      onClick={moveQuestion(idx, "up")}
+                      disabled={idx === 0}
                     >
-                      <Delete />
+                      <ArrowUpward />
                     </IconButton>
-                  </Tooltip>
-                  <Tooltip title="Move Question Up">
-                    <Box>
-                      <IconButton
-                        aria-label="move up"
-                        onClick={moveQuestion(idx, "up")}
-                        disabled={idx === 0}
-                      >
-                        <ArrowUpward />
-                      </IconButton>
-                    </Box>
-                  </Tooltip>
-                  <Tooltip title="Move Question Down">
-                    <Box>
-                      <IconButton
-                        aria-label="move down"
-                        onClick={moveQuestion(idx, "down")}
-                        disabled={idx === game.questions.length - 1}
-                      >
-                        <ArrowDownward />
-                      </IconButton>
-                    </Box>
-                  </Tooltip>
-                  <Tooltip title="Duplicate Question">
+                  </Box>
+                </Tooltip>
+                <Tooltip title="Move Question Down">
+                  <Box>
                     <IconButton
-                      aria-label="duplicate question"
-                      onClick={duplicateQuestion(idx)}
+                      aria-label="move down"
+                      onClick={moveQuestion(idx, "down")}
+                      disabled={idx === game.questions.length - 1}
                     >
-                      <FileCopy />
+                      <ArrowDownward />
                     </IconButton>
-                  </Tooltip>
-                  <Tooltip title="Add Question Above">
-                    <IconButton
-                      aria-label="add question above"
-                      onClick={addQuestion(idx)}
-                    >
-                      <Add />
-                    </IconButton>
-                  </Tooltip>
-                </CardActions>
-              </Card>
-            );
-          })}
-        </CardContent>
-        <CardActions disableSpacing>
-          <Tooltip title="Add Question">
-            <IconButton aria-label="add question" onClick={addQuestion()}>
-              <Add />
-            </IconButton>
-          </Tooltip>
-        </CardActions>
-      </InputGroupCard>
+                  </Box>
+                </Tooltip>
+                <Tooltip title="Duplicate Question">
+                  <IconButton
+                    aria-label="duplicate question"
+                    onClick={duplicateQuestion(idx)}
+                  >
+                    <FileCopy />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Add Question Above">
+                  <IconButton
+                    aria-label="add question above"
+                    onClick={addQuestion(idx)}
+                  >
+                    <Add />
+                  </IconButton>
+                </Tooltip>
+              </CardActions>
+            </Card>
+          );
+        })}
+        <Tooltip title="Add Question">
+          <IconButton aria-label="add question" onClick={addQuestion()}>
+            <Add />
+          </IconButton>
+        </Tooltip>
+      </Section>
 
       <Button
         variant="contained"
