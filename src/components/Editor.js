@@ -350,7 +350,12 @@ let Editor = ({
         </CardActions>
       </InputGroupCard>
 
-      <Button variant="contained" color="primary" onClick={onSubmit}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={onSubmit}
+        style={{ marginBottom: "2em" }}
+      >
         Download
       </Button>
     </Box>
