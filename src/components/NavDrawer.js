@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Divider,
@@ -9,10 +9,19 @@ import {
   ListItemIcon,
   Typography,
 } from "@material-ui/core";
-import GameIndex from "../games/index.json";
 import { Home } from "@material-ui/icons";
 
+import GetGameIndex from "./GameIndex";
+
 let NavDrawer = ({ open, onClose }) => {
+  const [allGames, setAllGames] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      setAllGames(await GetGameIndex());
+    })();
+  });
+
   return (
     <Drawer open={open} onClose={onClose}>
       <List>
@@ -28,7 +37,7 @@ let NavDrawer = ({ open, onClose }) => {
         <ListItem dense={true}>
           <Typography variant="overline">All Games</Typography>
         </ListItem>
-        {GameIndex.map((g, idx) => (
+        {allGames.map((g, idx) => (
           <ListItem
             component={Link}
             button

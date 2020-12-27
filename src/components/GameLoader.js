@@ -4,36 +4,38 @@ import { useParams } from "react-router-dom";
 import { Box, CircularProgress, Typography } from "@material-ui/core";
 import { Error } from "@material-ui/icons";
 
-import GameIndex from "../games/index.json";
+import GetGameIndex from "./GameIndex";
 import { BaseURL } from "../Const";
-
-let findGameIdx = (gameId) => {
-  for (let i = 0; i < GameIndex.length; i++) {
-    if (GameIndex[i].id === gameId) {
-      return i;
-    }
-  }
-  return null;
-};
 
 let GameLoader = ({ component: Component }) => {
   const { gameId } = useParams();
 
+  const [allGames, setAllGames] = useState(null);
   const [gameIdx, setGameIdx] = useState(null);
   const [gameData, setGameData] = useState(null);
   const [loadError, setLoadError] = useState(null);
 
   useEffect(() => {
-    const foundIdx = findGameIdx(gameId);
-    if (foundIdx === null) {
-      setGameData(false);
-      setLoadError(`No game exists by the ID of "${gameId}".`);
-      return;
-    }
-
-    setGameIdx(foundIdx);
-
     (async () => {
+      const GameIndex = await GetGameIndex();
+      setAllGames(GameIndex);
+
+      let foundIdx = null;
+      for (let i = 0; i < GameIndex.length; i++) {
+        if (GameIndex[i].id === gameId) {
+          foundIdx = i;
+          break;
+        }
+      }
+
+      if (foundIdx === null) {
+        setGameData(false);
+        setLoadError(`No game exists by the ID of "${gameId}".`);
+        return;
+      }
+
+      setGameIdx(foundIdx);
+
       try {
         const response = await fetch(`${BaseURL}/games/${gameId}.json`);
         const parsed = await response.json();
@@ -47,7 +49,7 @@ let GameLoader = ({ component: Component }) => {
 
   if (gameData) {
     return (
-      <Component gameIdx={gameIdx} allGames={GameIndex} template={gameData} />
+      <Component gameIdx={gameIdx} allGames={allGames} template={gameData} />
     );
   } else if (gameData === null) {
     return (
