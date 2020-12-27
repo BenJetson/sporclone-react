@@ -241,6 +241,9 @@ let Editor = ({
           </IconButton>
         </CardActions>
       </InputGroupCard>
+      <Button color="primary" onClick={onSubmit}>
+        Download
+      </Button>
     </Box>
   );
 };

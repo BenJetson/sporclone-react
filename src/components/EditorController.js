@@ -31,9 +31,11 @@ let EditorController = ({}) => {
   const makeDeepCopyOfGame = () => JSON.parse(JSON.stringify(game));
 
   const validateGame = () => {
+    let hasProblem = false;
     let updatedInvalid = {};
 
     updateInvalid(updatedInvalid);
+    return !hasProblem;
   };
 
   /**
@@ -149,9 +151,9 @@ let EditorController = ({}) => {
     );
     anchor.setAttribute("download", `${game.id}.json`);
 
-    document.appendChild(anchor);
+    document.body.appendChild(anchor);
     anchor.click();
-    document.removeChild(anchor);
+    document.body.removeChild(anchor);
   };
 
   return (
