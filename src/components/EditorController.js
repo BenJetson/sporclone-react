@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { v4 as makeUUID } from "uuid";
+import { format } from "prettier/standalone";
+import parserBabel from "prettier/parser-babel";
 import Editor from "./Editor";
 
 const makeBlankQuestion = () => ({
@@ -224,7 +226,7 @@ let EditorController = ({ gameIdx, template, allGames }) => {
       delete gameToDownload.image;
     }
 
-    const out = JSON.stringify(gameToDownload, null, 2);
+    const out = format(JSON.stringify(gameToDownload), {"parser": "json", "plugins": [parserBabel]});
 
     const anchor = document.createElement("a");
     anchor.setAttribute(
