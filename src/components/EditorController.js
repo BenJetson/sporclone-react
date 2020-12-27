@@ -165,11 +165,34 @@ let EditorController = ({ gameIdx, template, allGames }) => {
     };
   };
 
-  const onAddQuestion = () => {
-    let updatedGame = makeDeepCopyOfGame();
-    updatedGame.questions.push(makeBlankQuestion());
-    updateGame(updatedGame);
-    validateGame({ g: updatedGame });
+  const onAddQuestion = (atIndex = null) => {
+    return () => {
+      let updatedGame = makeDeepCopyOfGame();
+      if (atIndex === null) {
+        updatedGame.questions.push(makeBlankQuestion());
+      } else {
+        updatedGame.questions.splice(atIndex, 0, makeBlankQuestion());
+      }
+
+      updateGame(updatedGame);
+      validateGame({ g: updatedGame });
+    };
+  };
+
+  const onDuplicateQuestion = (atIndex) => {
+    return () => {
+      let updatedGame = makeDeepCopyOfGame();
+      let copyOfQuestion = JSON.parse(
+        JSON.stringify(updatedGame.questions[atIndex])
+      );
+
+      copyOfQuestion.id = makeUUID();
+
+      updatedGame.questions.splice(atIndex, 0, copyOfQuestion);
+
+      updateGame(updatedGame);
+      validateGame({ g: updatedGame });
+    };
   };
 
   const onMoveQuestion = (idx, direction) => {
@@ -249,6 +272,7 @@ let EditorController = ({ gameIdx, template, allGames }) => {
       updateField={onFieldChange}
       onSubmit={onSubmit}
       addQuestion={onAddQuestion}
+      duplicateQuestion={onDuplicateQuestion}
       deleteQuestion={onDeleteQuestion}
       moveQuestion={onMoveQuestion}
     />

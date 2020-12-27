@@ -13,7 +13,13 @@ import {
 } from "@material-ui/core";
 import { Alert as BasicAlert, AlertTitle } from "@material-ui/lab";
 import ChipInput from "material-ui-chip-input";
-import { Add, ArrowDownward, ArrowUpward, Delete } from "@material-ui/icons";
+import {
+  Add,
+  ArrowDownward,
+  ArrowUpward,
+  Delete,
+  FileCopy,
+} from "@material-ui/icons";
 
 const InputGroupCard = styled(Card)({
   marginBottom: "2em",
@@ -30,6 +36,7 @@ let Editor = ({
   updateField,
   onSubmit,
   addQuestion,
+  duplicateQuestion,
   deleteQuestion,
   moveQuestion,
 }) => {
@@ -299,13 +306,25 @@ let Editor = ({
                   >
                     <ArrowDownward />
                   </IconButton>
+                  <IconButton
+                    aria-label="duplicate question"
+                    onClick={duplicateQuestion(idx)}
+                  >
+                    <FileCopy />
+                  </IconButton>
+                  <IconButton
+                    aria-label="add question above"
+                    onClick={addQuestion(idx)}
+                  >
+                    <Add />
+                  </IconButton>
                 </CardActions>
               </Card>
             );
           })}
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add question" onClick={addQuestion}>
+          <IconButton aria-label="add question" onClick={addQuestion()}>
             <Add />
           </IconButton>
         </CardActions>
