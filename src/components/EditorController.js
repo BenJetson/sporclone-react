@@ -144,7 +144,6 @@ let EditorController = ({ gameIdx, template, allGames }) => {
 
         // +2 to account for the extra dot after the ]
         fieldName = fieldName.substring(fieldName.lastIndexOf("]") + 2);
-        console.log(fieldName, !fieldName.includes("."));
 
         if (!fieldName.includes(".")) {
           updatedGame.questions[idx][fieldName] = value;
@@ -161,7 +160,6 @@ let EditorController = ({ gameIdx, template, allGames }) => {
         throw new Error(`Bad field name '${fieldName}' for attempted update.`);
       }
 
-      console.log(game, updatedGame);
       updateGame(updatedGame);
       validateGame({ g: updatedGame });
     };
@@ -226,7 +224,10 @@ let EditorController = ({ gameIdx, template, allGames }) => {
       delete gameToDownload.image;
     }
 
-    const out = format(JSON.stringify(gameToDownload), {"parser": "json", "plugins": [parserBabel]});
+    const out = format(JSON.stringify(gameToDownload), {
+      parser: "json",
+      plugins: [parserBabel],
+    });
 
     const anchor = document.createElement("a");
     anchor.setAttribute(
