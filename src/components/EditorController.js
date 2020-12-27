@@ -142,7 +142,16 @@ let EditorController = ({}) => {
       return;
     }
 
-    const out = JSON.stringify(game, "id", 2);
+    let gameToDownload = makeDeepCopyOfGame();
+    delete gameToDownload.id;
+    for (let i = 0; i < gameToDownload.questions.length; i++) {
+      delete gameToDownload.questions[i].id;
+    }
+    if (gameToDownload.image.src.length < 1) {
+      delete gameToDownload.image;
+    }
+
+    const out = JSON.stringify(gameToDownload, null, 2);
 
     const anchor = document.createElement("a");
     anchor.setAttribute(
