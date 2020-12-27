@@ -113,7 +113,7 @@ let EditorController = ({ gameIdx, template, allGames }) => {
       /** @type string | array | null */
       let value = event?.target?.value ?? null;
       if (value === null) {
-        throw `Received null value for update of '${fieldName}'.`;
+        throw new Error(`Received null value for update of '${fieldName}'.`);
       }
 
       let updatedGame = makeDeepCopyOfGame();
@@ -128,7 +128,9 @@ let EditorController = ({ gameIdx, template, allGames }) => {
         if (["src", "alt"].includes(fieldName)) {
           updatedGame.image[fieldName] = value;
         } else {
-          throw `Bad image field '${fieldName}' for attempted update.`;
+          throw new Error(
+            `Bad image field '${fieldName}' for attempted update.`
+          );
         }
       } else if (fieldName.includes("questions")) {
         const idx = parseInt(
@@ -149,10 +151,12 @@ let EditorController = ({ gameIdx, template, allGames }) => {
         } else if (fieldName === "answers.accepts") {
           updatedGame.questions[idx].answers.accepts = value;
         } else {
-          throw `Bad question field '${fieldName}' for attempted update.`;
+          throw new Error(
+            `Bad question field '${fieldName}' for attempted update.`
+          );
         }
       } else {
-        throw `Bad field name '${fieldName}' for attempted update.`;
+        throw new Error(`Bad field name '${fieldName}' for attempted update.`);
       }
 
       console.log(game, updatedGame);
@@ -179,7 +183,7 @@ let EditorController = ({ gameIdx, template, allGames }) => {
           destIdx = idx + 1;
           break;
         default:
-          throw `Invlid direction to move question: '${direction}'`;
+          throw new Error(`Invlid direction to move question: '${direction}'`);
       }
 
       let updatedGame = makeDeepCopyOfGame();

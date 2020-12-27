@@ -48,7 +48,9 @@ let Editor = ({
       } else if (op === "delete") {
         updatedValues.splice(answerIdx, 1);
       } else {
-        throw `Invalid operation for accepted answer update: '${op}'.`;
+        throw new Error(
+          `Invalid operation for accepted answer update: '${op}'.`
+        );
       }
 
       doUpdate({
