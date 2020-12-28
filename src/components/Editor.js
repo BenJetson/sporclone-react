@@ -9,6 +9,7 @@ import {
   IconButton,
   TextField,
   Typography,
+  Link as MaterialLink,
   styled,
   Tooltip,
 } from "@material-ui/core";
@@ -20,6 +21,7 @@ import {
   ArrowUpward,
   Delete,
   FileCopy,
+  GetApp,
 } from "@material-ui/icons";
 
 const Alert = styled(BasicAlert)({
@@ -339,14 +341,34 @@ let Editor = ({
         </Tooltip>
       </Section>
 
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={onSubmit}
-        style={{ marginBottom: "2em" }}
-      >
-        Download
-      </Button>
+      <Alert severity="info">
+        <AlertTitle>All Finished. What Next?</AlertTitle>
+        <Typography gutterBottom>
+          All games on the site are stored as JSON files in the
+          <MaterialLink
+            href="https://github.com/BenJetson/sporclone-react/tree/main/public/games"
+            target="_blank"
+            rel="noopener"
+          >
+            &nbsp;games folder&nbsp;
+          </MaterialLink>
+          of the GitHub repository. In order for the game to be added, modified,
+          or deleted you must submit a pull request to the repository to alter
+          the relevant file.
+        </Typography>
+        <Typography gutterBottom>
+          You can download the game in the proper file format using the button
+          below.
+        </Typography>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={onSubmit}
+          startIcon={<GetApp />}
+        >
+          Download
+        </Button>
+      </Alert>
     </Box>
   );
 };
