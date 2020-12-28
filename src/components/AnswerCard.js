@@ -61,6 +61,9 @@ let AnswerCard = ({
             {markCorrect !== null && (
               <Grid item xs={"auto"}>
                 {markCorrect ? <CheckCircle /> : <Error />}
+                <Typography variant="srOnly">
+                  {markCorrect ? "correct" : "not correct"}
+                </Typography>
               </Grid>
             )}
             <Grid item xs>
