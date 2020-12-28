@@ -1,0 +1,142 @@
+{
+  "time": 120,
+  "title": "Windows Versions",
+  "headline": "Name the version of Microsoft Windows that was released in each year.",
+  "questions": [
+    {
+      "label": "2015",
+      "answers": {
+        "display": "Windows 10",
+        "accepts": [
+          "10",
+          "windows 10",
+          "win 10",
+          "ten",
+          "windows ten",
+          "win ten"
+        ]
+      }
+    },
+    {
+      "label": "2013",
+      "answers": {
+        "display": "Windows 8.1",
+        "accepts": ["8.1", "windows 8.1", "win 8.1"]
+      }
+    },
+    {
+      "label": "2012",
+      "answers": {
+        "display": "Windows 8",
+        "accepts": [
+          "8",
+          "windows 8",
+          "win 8",
+          "eight",
+          "windows eight",
+          "win eight"
+        ]
+      }
+    },
+    {
+      "label": "2009",
+      "answers": {
+        "display": "Windows 7",
+        "accepts": [
+          "7",
+          "windows 7",
+          "win 7",
+          "seven",
+          "windows seven",
+          "win seven"
+        ]
+      }
+    },
+    {
+      "label": "2007",
+      "answers": {
+        "display": "Windows Vista",
+        "accepts": ["vista", "windows vista", "win vista"]
+      }
+    },
+    {
+      "label": "2001",
+      "answers": {
+        "display": "Windows XP",
+        "accepts": [
+          "xp",
+          "windows xp",
+          "win xp",
+          "windows experience",
+          "win experience"
+        ]
+      }
+    },
+    {
+      "label": "September 2000",
+      "answers": {
+        "display": "Windows Me (Millennium Edition)",
+        "accepts": [
+          "me",
+          "windows me",
+          "win me",
+          "windows millenium",
+          "win millenium",
+          "millenium"
+        ]
+      }
+    },
+    {
+      "label": "February 2000",
+      "answers": {
+        "display": "Windows 2000",
+        "accepts": [
+          "2000",
+          "windows 2000",
+          "win 2000",
+          "two thousand",
+          "windows two thousand",
+          "win two thousand"
+        ]
+      }
+    },
+    {
+      "label": "1998",
+      "answers": {
+        "display": "Windows 98",
+        "accepts": [
+          "98",
+          "windows 98",
+          "win 98",
+          "ninety eight",
+          "ninety-eight",
+          "win ninety eight",
+          "win ninety-eight",
+          "windows ninety eight",
+          "windows ninety-eight"
+        ]
+      }
+    },
+    {
+      "label": "1995",
+      "answers": {
+        "display": "Windows 95",
+        "accepts": [
+          "95",
+          "windows 95",
+          "win 95",
+          "ninety five",
+          "ninety-five",
+          "win ninety five",
+          "win ninety-five",
+          "windows ninety five",
+          "windows ninety-five"
+        ]
+      }
+    }
+  ],
+  "image": {
+    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Windows_Logo_1995.svg/692px-Windows_Logo_1995.svg.png",
+    "alt": "Microsoft Windows Logo"
+  }
+}
