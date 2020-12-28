@@ -112,6 +112,8 @@ let EditorController = ({ gameIdx, template, allGames }) => {
     return Object.keys(updatedInvalid).length === 0;
   };
 
+  const validateGameAsync = async ({ g, force }) => validateGame({ g, force });
+
   /**
    * @param {string} fieldName the name of the field to be updated.
    */
@@ -166,7 +168,7 @@ let EditorController = ({ gameIdx, template, allGames }) => {
       }
 
       updateGame(updatedGame);
-      validateGame({ g: updatedGame });
+      validateGameAsync({ g: updatedGame });
     };
   };
 
@@ -180,7 +182,7 @@ let EditorController = ({ gameIdx, template, allGames }) => {
       }
 
       updateGame(updatedGame);
-      validateGame({ g: updatedGame });
+      validateGameAsync({ g: updatedGame });
     };
   };
 
@@ -196,7 +198,7 @@ let EditorController = ({ gameIdx, template, allGames }) => {
       updatedGame.questions.splice(atIndex, 0, copyOfQuestion);
 
       updateGame(updatedGame);
-      validateGame({ g: updatedGame });
+      validateGameAsync({ g: updatedGame });
     };
   };
 
@@ -221,7 +223,7 @@ let EditorController = ({ gameIdx, template, allGames }) => {
       updatedGame.questions[idx] = placeholder;
 
       updateGame(updatedGame);
-      validateGame({ g: updatedGame });
+      validateGameAsync({ g: updatedGame });
     };
   };
 
@@ -230,7 +232,7 @@ let EditorController = ({ gameIdx, template, allGames }) => {
       let updatedGame = makeDeepCopyOfGame();
       updatedGame.questions.splice(idx, 1);
       updateGame(updatedGame);
-      validateGame({ g: updatedGame });
+      validateGameAsync({ g: updatedGame });
     };
   };
 
