@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { v4 as makeUUID } from "uuid";
-import { format } from "prettier/standalone";
-import parserBabel from "prettier/parser-babel";
+import { downloadAsJSON } from "../Download";
 import Editor from "./Editor";
 
 const makeBlankQuestion = () => ({
@@ -247,21 +246,10 @@ let EditorController = ({ gameIdx, template, allGames }) => {
       delete gameToDownload.image;
     }
 
-    const out = format(JSON.stringify(gameToDownload), {
-      parser: "json",
-      plugins: [parserBabel],
+    downloadAsJSON({
+      filename: game.id,
+      object: gameToDownload,
     });
-
-    const anchor = document.createElement("a");
-    anchor.setAttribute(
-      "href",
-      "data:application/json;charset=utf-8," + encodeURIComponent(out)
-    );
-    anchor.setAttribute("download", `${game.id}.json`);
-
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
   };
 
   return (
