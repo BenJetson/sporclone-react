@@ -16,6 +16,12 @@ let GameLoader = ({ component: Component }) => {
   const [loadError, setLoadError] = useState(null);
 
   useEffect(() => {
+    setGameIdx(null);
+    setGameData(null);
+    setLoadError(null);
+  }, [gameId]);
+
+  useEffect(() => {
     (async () => {
       const GameIndex = await GetGameIndex();
       setAllGames(GameIndex);
