@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Game from "./Game";
+import NavigationBlock from "./NavigationBlock";
 
 export let makeInitialQuestionStatus = (questions) => {
   let questionStatus = [];
@@ -114,19 +115,28 @@ let GameController = ({ gameId, gameIdx, template, allGames }) => {
   };
 
   return (
-    <Game
-      gameId={gameId}
-      headline={template.headline}
-      image={template?.image ?? null}
-      questionStatus={questionStatus}
-      otherGames={otherGames}
-      wasStarted={wasStarted}
-      gameOver={gameOver}
-      timeLeft={timeLeft}
-      score={score}
-      onGuess={submitGuess}
-      onButton={handleButton}
-    />
+    <>
+      <NavigationBlock
+        when={wasStarted && !gameOver}
+        message={
+          "You have a game in progress.\n" +
+          "Are you sure you want to navigate away?"
+        }
+      />
+      <Game
+        gameId={gameId}
+        headline={template.headline}
+        image={template?.image ?? null}
+        questionStatus={questionStatus}
+        otherGames={otherGames}
+        wasStarted={wasStarted}
+        gameOver={gameOver}
+        timeLeft={timeLeft}
+        score={score}
+        onGuess={submitGuess}
+        onButton={handleButton}
+      />
+    </>
   );
 };
 

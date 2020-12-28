@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as makeUUID } from "uuid";
 import { downloadAsJSON } from "../Download";
 import Editor from "./Editor";
+import NavigationBlock from "./NavigationBlock";
 
 const makeBlankQuestion = () => ({
   id: makeUUID().toUpperCase(),
@@ -53,6 +54,7 @@ let EditorController = ({ gameIdx, template, allGames }) => {
   const [game, updateGame] = useState(
     makeGameEditable(gameIdx, template, allGames) ?? makeBlankGame()
   );
+  const [isDirty, setIsDirty] = useState(false);
   const [wasSubmitted, setWasSubmitted] = useState(false);
   const [invalid, updateInvalid] = useState({});
 
@@ -123,6 +125,8 @@ let EditorController = ({ gameIdx, template, allGames }) => {
    */
   const onFieldChange = (fieldName) => {
     return (event) => {
+      setIsDirty(true);
+
       /** @type string | array | null */
       let value = event?.target?.value ?? null;
       if (value === null) {
@@ -178,6 +182,8 @@ let EditorController = ({ gameIdx, template, allGames }) => {
 
   const onAddQuestion = (atIndex = null) => {
     return () => {
+      setIsDirty(true);
+
       let updatedGame = makeDeepCopyOfGame();
       if (atIndex === null) {
         updatedGame.questions.push(makeBlankQuestion());
@@ -192,6 +198,8 @@ let EditorController = ({ gameIdx, template, allGames }) => {
 
   const onDuplicateQuestion = (atIndex) => {
     return () => {
+      setIsDirty(true);
+
       let updatedGame = makeDeepCopyOfGame();
       let copyOfQuestion = JSON.parse(
         JSON.stringify(updatedGame.questions[atIndex])
@@ -208,6 +216,8 @@ let EditorController = ({ gameIdx, template, allGames }) => {
 
   const onMoveQuestion = (idx, direction) => {
     return () => {
+      setIsDirty(true);
+
       let destIdx;
       switch (direction) {
         case "up":
@@ -233,6 +243,8 @@ let EditorController = ({ gameIdx, template, allGames }) => {
 
   const onDeleteQuestion = (idx) => {
     return () => {
+      setIsDirty(true);
+
       let updatedGame = makeDeepCopyOfGame();
       updatedGame.questions.splice(idx, 1);
       updateGame(updatedGame);
@@ -248,6 +260,8 @@ let EditorController = ({ gameIdx, template, allGames }) => {
 
       return;
     }
+
+    setIsDirty(false);
 
     let gameToDownload = makeDeepCopyOfGame();
     delete gameToDownload.id;
@@ -265,17 +279,26 @@ let EditorController = ({ gameIdx, template, allGames }) => {
   };
 
   return (
-    <Editor
-      game={game}
-      invalid={invalid}
-      wasSubmitted={wasSubmitted}
-      updateField={onFieldChange}
-      onSubmit={onSubmit}
-      addQuestion={onAddQuestion}
-      duplicateQuestion={onDuplicateQuestion}
-      deleteQuestion={onDeleteQuestion}
-      moveQuestion={onMoveQuestion}
-    />
+    <>
+      <NavigationBlock
+        when={isDirty}
+        message={
+          "You have made changes to this game in the editor.\n" +
+          "Are you sure you want to navigate away?"
+        }
+      />
+      <Editor
+        game={game}
+        invalid={invalid}
+        wasSubmitted={wasSubmitted}
+        updateField={onFieldChange}
+        onSubmit={onSubmit}
+        addQuestion={onAddQuestion}
+        duplicateQuestion={onDuplicateQuestion}
+        deleteQuestion={onDeleteQuestion}
+        moveQuestion={onMoveQuestion}
+      />
+    </>
   );
 };
 
