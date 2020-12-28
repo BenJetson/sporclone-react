@@ -67,6 +67,12 @@ let EditorController = ({ gameIdx, template, allGames }) => {
       }
     }
 
+    if (g.id.length > 0 && !/^[a-z0-9_]+$/g.test(g.id)) {
+      updatedInvalid["id"] =
+        "Game IDs may only contain lowercase alphanumeric characters " +
+        "and underscores.";
+    }
+
     if (g.image.src.length > 0 || g.image.alt.length > 0) {
       for (let field of ["src", "alt"]) {
         if (g.image[field].length < 1) {
