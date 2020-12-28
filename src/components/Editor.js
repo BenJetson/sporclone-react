@@ -375,14 +375,14 @@ let Editor = ({
       <Alert severity="info">
         <AlertTitle>All Finished. What Next?</AlertTitle>
         <Typography gutterBottom>
-          All games on the site are stored as JSON files in the
+          All games on the site are stored as JSON files in the{" "}
           <MaterialLink
             href="https://github.com/BenJetson/sporclone-react/tree/main/public/games"
             target="_blank"
             rel="noopener"
           >
-            &nbsp;games folder&nbsp;
-          </MaterialLink>
+            games folder
+          </MaterialLink>{" "}
           of the GitHub repository. In order for the game to be added, modified,
           or deleted you must submit a pull request to the repository to alter
           the relevant file.
