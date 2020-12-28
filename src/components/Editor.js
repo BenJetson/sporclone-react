@@ -97,16 +97,17 @@ let Editor = ({
             The game contains zero errors and is ready for download.
           </Alert>
         ))}
-      <Typography variant="subtitle1">
+      <Typography variant="subtitle1" component="p">
         The presence of * indicates required fields.
       </Typography>
       <Section>
-        <Typography variant="h5" component="h2" gutterBottom>
+        <Typography variant="h5" component="h3" gutterBottom>
           Header
         </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextField
+              id="gameIDField"
               label="Game ID"
               variant="outlined"
               color="secondary"
@@ -126,6 +127,7 @@ let Editor = ({
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
+              id="titleField"
               label="Title"
               variant="outlined"
               color="secondary"
@@ -142,6 +144,7 @@ let Editor = ({
           </Grid>
           <Grid item xs={12}>
             <TextField
+              id="headlineField"
               label="Headline"
               variant="outlined"
               color="secondary"
@@ -159,6 +162,7 @@ let Editor = ({
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
+              id="imageSrcField"
               label="Image Source"
               variant="outlined"
               color="secondary"
@@ -172,6 +176,7 @@ let Editor = ({
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
+              id="imageAltField"
               label="Image Alt Text"
               variant="outlined"
               color="secondary"
@@ -186,12 +191,13 @@ let Editor = ({
         </Grid>
       </Section>
       <Section>
-        <Typography variant="h5" component="h2" gutterBottom={true}>
+        <Typography variant="h5" component="h3" gutterBottom={true}>
           Game Settings
         </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextField
+              id="timeField"
               label="Time Limit"
               type="number"
               variant="outlined"
@@ -207,7 +213,7 @@ let Editor = ({
         </Grid>
       </Section>
       <Section>
-        <Typography variant="h5" component="h2" gutterBottom>
+        <Typography variant="h5" component="h3" gutterBottom>
           Questions
         </Typography>
 
@@ -229,12 +235,13 @@ let Editor = ({
               }}
             >
               <CardContent>
-                <Typography variant="h6" component="h3" gutterBottom>
+                <Typography variant="h6" component="h4" gutterBottom>
                   Question {idx + 1}
                 </Typography>
                 <Grid container spacing={2}>
                   <Grid item xs={12} sm={6}>
                     <TextField
+                      id={`question${idx + 1}LabelField`}
                       variant="outlined"
                       color="secondary"
                       label="Displayed Question"
@@ -244,10 +251,14 @@ let Editor = ({
                       value={q.label}
                       onChange={updateField(`${fieldPrefix}.label`)}
                       error={fieldHasError(`${fieldPrefix}.label`)}
+                      inputProps={{
+                        "aria-label": `Question ${idx + 1} Displayed Question`,
+                      }}
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <TextField
+                      id={`question${idx + 1}DisplayedAnswerField`}
                       variant="outlined"
                       color="secondary"
                       label="Displayed Answer"
@@ -259,10 +270,14 @@ let Editor = ({
                       value={q.answers.display}
                       onChange={updateField(`${fieldPrefix}.answers.display`)}
                       error={fieldHasError(`${fieldPrefix}.answers.display`)}
+                      inputProps={{
+                        "aria-label": `Question ${idx + 1} Displayed Answer`,
+                      }}
                     />
                   </Grid>
                   <Grid item xs={12}>
                     <ChipInput
+                      id={`question${idx + 1}AcceptedAnswersField`}
                       variant="outlined"
                       color="secondary"
                       label="Accepted Answers"
@@ -285,6 +300,11 @@ let Editor = ({
                         "delete"
                       )}
                       error={fieldHasError(`${fieldPrefix}.answers.accepts`)}
+                      InputProps={{
+                        inputProps: {
+                          "aria-label": `Question ${idx + 1} Accepted Answers`,
+                        },
+                      }}
                     />
                   </Grid>
                 </Grid>
@@ -343,7 +363,9 @@ let Editor = ({
           </IconButton>
         </Tooltip>
       </Section>
-
+      <Typography variant="srOnly" component="h3" gutterBottom>
+        Download
+      </Typography>
       <Alert severity="info">
         <AlertTitle>All Finished. What Next?</AlertTitle>
         <Typography gutterBottom>
