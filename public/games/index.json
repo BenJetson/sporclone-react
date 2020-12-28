@@ -8,6 +8,10 @@
     "id": "macos_versions"
   },
   {
+    "name": "Windows Versions",
+    "id": "windows_versions"
+  },
+  {
     "name": "Spanish Capitals",
     "id": "spanish_capitals"
   },
