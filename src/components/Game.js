@@ -84,7 +84,7 @@ let Game = ({
             </Grid>
           )}
           <Grid item xs={8}>
-            <Typography variant="h4" component="h1">
+            <Typography variant="h4" component="h2">
               {headline}
             </Typography>
           </Grid>
@@ -140,7 +140,7 @@ let Game = ({
             <Typography variant="h6" component="h4">
               Score
             </Typography>
-            <Typography>
+            <Typography aria-label={`${score} out of ${questionStatus.length}`}>
               {score}/{questionStatus.length}
             </Typography>
           </Grid>
@@ -155,7 +155,10 @@ let Game = ({
         </Grid>
       </Section>
       <Divider />
-      <Section>
+      <Typography variant="srOnly" aria-hidden={wasStarted}>
+        Once the game has started, game tiles will appear here.
+      </Typography>
+      <Section aria-hidden={!wasStarted}>
         <AnswerCardDeck
           questions={questionStatus}
           blur={!wasStarted}
