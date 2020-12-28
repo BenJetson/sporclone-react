@@ -127,6 +127,7 @@ let Game = ({
             {wasStarted && !gameOver && (
               <TextField
                 label="Enter Guess"
+                id="guessField"
                 variant="outlined"
                 size="small"
                 color="secondary"
