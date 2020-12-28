@@ -8,7 +8,7 @@ const makeBlankQuestion = () => ({
   label: "",
   answers: {
     display: "",
-    accept: [],
+    accepts: [],
   },
 });
 
