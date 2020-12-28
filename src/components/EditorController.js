@@ -42,6 +42,10 @@ const makeGameEditable = (gameIdx, template, allGames) => {
     game.questions[i].id = makeUUID().toUpperCase();
   }
 
+  if (!game.image) game.image = {};
+  if (!game.image.src) game.image.src = "";
+  if (!game.image.alt) game.image.alt = "";
+
   return game;
 };
 

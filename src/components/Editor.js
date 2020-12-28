@@ -71,7 +71,7 @@ let Editor = ({
   };
 
   const isImageRequired = () =>
-    game.image.src.length > 0 || game.image.alt.length > 0;
+    (game?.image?.src?.length ?? 0) > 0 || (game?.image?.alt?.length ?? 0) > 0;
 
   return (
     <Box>
@@ -169,7 +169,7 @@ let Editor = ({
               fullWidth
               required={isImageRequired()}
               helperText={invalid["image.src"] ?? ""}
-              value={game.image.src}
+              value={game?.image?.src ?? ""}
               onChange={updateField("image.src")}
               error={fieldHasError("image.src")}
             />
@@ -183,7 +183,7 @@ let Editor = ({
               fullWidth
               required={isImageRequired()}
               helperText={invalid["image.alt"] ?? ""}
-              value={game.image.alt}
+              value={game?.image?.alt ?? ""}
               onChange={updateField("image.alt")}
               error={fieldHasError("image.alt")}
             />
