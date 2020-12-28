@@ -22,5 +22,9 @@
   {
     "name": "evermore Album",
     "id": "swift_evermore"
+  },
+  {
+    "name": "UNIX Commands",
+    "id": "unix_commands"
   }
 ]

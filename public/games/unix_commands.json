@@ -1,0 +1,79 @@
+{
+  "time": 60,
+  "title": "UNIX Commands",
+  "headline": "Name the common UNIX commands that perform the functions specified below.",
+  "questions": [
+    {
+      "label": "List Files in Directory",
+      "answers": { "display": "ls", "accepts": ["ls"] }
+    },
+    {
+      "label": "Change File Permissions",
+      "answers": { "display": "chmod", "accepts": ["chmod"] }
+    },
+    {
+      "label": "Change File Owner",
+      "answers": { "display": "chown", "accepts": ["chown"] }
+    },
+    {
+      "label": "Run Another Command as root",
+      "answers": { "display": "sudo", "accepts": ["sudo", "su"] }
+    },
+    {
+      "label": "Quantify Free Disk Space",
+      "answers": { "display": "df", "accepts": ["df"] }
+    },
+    {
+      "label": "Create Empty File",
+      "answers": { "display": "touch", "accepts": ["touch"] }
+    },
+    {
+      "label": "Change Directories",
+      "answers": { "display": "cd", "accepts": ["cd"] }
+    },
+    {
+      "label": "Delete a File",
+      "answers": { "display": "rm", "accepts": ["rm"] }
+    },
+    {
+      "label": "Create Directory",
+      "answers": { "display": "mkdir", "accepts": ["mkdir"] }
+    },
+    {
+      "label": "List Active Users",
+      "answers": { "display": "w", "accepts": ["who", "w"] }
+    },
+    {
+      "label": "List Running Processes",
+      "answers": { "display": "p", "accepts": ["p"] }
+    },
+    {
+      "label": "Terminate a Process",
+      "answers": { "display": "kill", "accepts": ["kill"] }
+    },
+    {
+      "label": "Move a File",
+      "answers": { "display": "mv", "accepts": ["mv"] }
+    },
+    {
+      "label": "Copy a File",
+      "answers": { "display": "cp", "accepts": ["cp"] }
+    },
+    {
+      "label": "View Previous Shell Commands",
+      "answers": { "display": "history", "accepts": ["history"] }
+    },
+    {
+      "label": "Search for a File",
+      "answers": { "display": "find", "accepts": ["find"] }
+    },
+    {
+      "label": "Count Output Lines",
+      "answers": { "display": "wc", "accepts": ["wc"] }
+    },
+    {
+      "label": "Access Help For Commands",
+      "answers": { "display": "man", "accepts": ["man"] }
+    }
+  ]
+}
