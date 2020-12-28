@@ -52,28 +52,38 @@ let AnswerCard = ({
       </CardContent>
       <Divider />
       <CardContent className={classes.answerContainer}>
-        <Typography
-          variant="body1"
-          paragraph={false}
-          className={classes.answerText}
-        >
-          <Grid container direction="row" alignItems="center" spacing={1}>
-            {markCorrect !== null && (
-              <Grid item xs={"auto"}>
+        <Grid container direction="row" alignItems="center" spacing={1}>
+          {markCorrect !== null && (
+            <Grid item xs={"auto"}>
+              <Typography
+                variant="body1"
+                paragraph={false}
+                className={classes.answerText}
+              >
                 {markCorrect ? <CheckCircle /> : <Error />}
-                <Typography variant="srOnly">
-                  {markCorrect ? "correct" : "not correct"}
-                </Typography>
-              </Grid>
-            )}
-            <Grid item xs>
-              {showAnswer ? answer : <HelpOutline />}
-              {!showAnswer && (
-                <Typography variant="srOnly">Not Answered Yet</Typography>
-              )}
+              </Typography>
+              <Typography variant="srOnly">
+                {markCorrect ? "correct" : "not correct"}
+              </Typography>
             </Grid>
+          )}
+          <Grid item xs>
+            {showAnswer ? (
+              <Typography
+                variant="body1"
+                paragraph={false}
+                className={classes.answerText}
+              >
+                {answer}
+              </Typography>
+            ) : (
+              <HelpOutline />
+            )}
+            {!showAnswer && (
+              <Typography variant="srOnly">Not Answered Yet</Typography>
+            )}
           </Grid>
-        </Typography>
+        </Grid>
       </CardContent>
     </Card>
   );
