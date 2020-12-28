@@ -68,6 +68,9 @@ let AnswerCard = ({
             )}
             <Grid item xs>
               {showAnswer ? answer : <HelpOutline />}
+              {!showAnswer && (
+                <Typography variant="srOnly">Not Answered Yet</Typography>
+              )}
             </Grid>
           </Grid>
         </Typography>
