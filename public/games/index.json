@@ -4,6 +4,10 @@
     "id": "ubuntu"
   },
   {
+    "name": "macOS Versions",
+    "id": "macos_versions"
+  },
+  {
     "name": "Spanish Capitals",
     "id": "spanish_capitals"
   },

@@ -1,0 +1,94 @@
+{
+  "time": 120,
+  "title": "macOS Versions",
+  "headline": "Give the codename for each release of macOS.",
+  "image": {
+    "src": "https://upload.wikimedia.org/wikipedia/commons/7/71/Finder_icon_macOS_Yosemite.png",
+    "alt": "Macintosh Finder Logo"
+  },
+  "questions": [
+    {
+      "label": "OS X 10.0",
+      "answers": { "display": "Cheetah", "accepts": ["cheetah"] }
+    },
+    {
+      "label": "OS X 10.1",
+      "answers": { "display": "Puma", "accepts": ["puma"] }
+    },
+    {
+      "label": "OS X 10.2",
+      "answers": { "display": "Jaguar", "accepts": ["jaguar"] }
+    },
+    {
+      "label": "OS X 10.3",
+      "answers": { "display": "Panther", "accepts": ["panther"] }
+    },
+    {
+      "label": "OS X 10.4",
+      "answers": { "display": "Tiger", "accepts": ["tiger"] }
+    },
+    {
+      "label": "OS X 10.5",
+      "answers": { "display": "Leopard", "accepts": ["leopard"] }
+    },
+    {
+      "label": "OS X 10.6",
+      "answers": { "display": "Snow Leopard", "accepts": ["snow leopard"] }
+    },
+    {
+      "label": "OS X 10.7",
+      "answers": { "display": "Lion", "accepts": ["lion"] }
+    },
+    {
+      "label": "OS X 10.8",
+      "answers": {
+        "display": "Mountain Lion",
+        "accepts": ["mountain lion", "mtn lion", "mt lion"]
+      }
+    },
+    {
+      "label": "OS X 10.9",
+      "answers": {
+        "display": "Mavericks",
+        "accepts": ["mavericks", "maverics", "maveriks"]
+      }
+    },
+    {
+      "label": "OS X 10.10",
+      "answers": {
+        "display": "Yosemite",
+        "accepts": ["yosemite", "yosemete", "yohsemite"]
+      }
+    },
+    {
+      "label": "OS X 10.11",
+      "answers": {
+        "display": "El Capitan",
+        "accepts": ["el capitan", "capitan"]
+      }
+    },
+    {
+      "label": "macOS 10.12",
+      "answers": { "display": "Sierra", "accepts": ["sierra", "low sierra"] }
+    },
+    {
+      "label": "macOS 10.13",
+      "answers": { "display": "High Sierra", "accepts": ["high sierra"] }
+    },
+    {
+      "label": "macOS 10.14",
+      "answers": {
+        "display": "Mojave",
+        "accepts": ["mojave", "mohave", "mojahve"]
+      }
+    },
+    {
+      "label": "macOS 10.15",
+      "answers": { "display": "Catalina", "accepts": ["catalina"] }
+    },
+    {
+      "label": "macOS 11",
+      "answers": { "display": "Big Sur", "accepts": ["big sur"] }
+    }
+  ]
+}
