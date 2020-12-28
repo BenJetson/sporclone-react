@@ -23,7 +23,10 @@ let Home = () => {
 
   return (
     <Box>
-      <Typography variant="h2">Welcome to Sporclone!</Typography>
+      <Typography variant="h2">
+        Welcome to{" "}
+        <span style={{ fontFamily: "Lobster, sans-serif" }}>Sporclone</span>!
+      </Typography>
       <Typography>Select a game to play from the list below.</Typography>
       <List>
         {allGames.map((g, idx) => (

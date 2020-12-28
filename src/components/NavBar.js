@@ -40,7 +40,11 @@ let NavBar = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="h1">
+          <Typography
+            variant="h4"
+            component="h1"
+            style={{ fontFamily: "Lobster, sans-serif" }}
+          >
             <Link to={"/"} component={RouterLink} color="inherit">
               Sporclone
             </Link>
