@@ -4,14 +4,16 @@ import { Box, Grid, makeStyles } from "@material-ui/core";
 import AnswerCard from "./AnswerCard";
 
 const useStyles = makeStyles((theme) => ({
-  unblur: {
-    filter: "blur(0px) !important",
-  },
   blur: {
     filter: "blur(15px)",
     transitionProperty: "filter",
     transitionDuration: "2s",
     transitionTimingFunction: "ease",
+    userSelect: "none",
+  },
+  unblur: {
+    filter: "none",
+    userSelect: "auto",
   },
 }));
 
