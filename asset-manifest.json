@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/sporclone-react/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/sporclone-react/static/js/main.a24863f3.chunk.js",
-    "main.js.map": "/sporclone-react/static/js/main.a24863f3.chunk.js.map",
+    "main.js": "/sporclone-react/static/js/main.c9236d54.chunk.js",
+    "main.js.map": "/sporclone-react/static/js/main.c9236d54.chunk.js.map",
     "runtime-main.js": "/sporclone-react/static/js/runtime-main.9a7cd49b.js",
     "runtime-main.js.map": "/sporclone-react/static/js/runtime-main.9a7cd49b.js.map",
     "static/js/2.5bb25f74.chunk.js": "/sporclone-react/static/js/2.5bb25f74.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.9a7cd49b.js",
     "static/js/2.5bb25f74.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.a24863f3.chunk.js"
+    "static/js/main.c9236d54.chunk.js"
   ]
 }
