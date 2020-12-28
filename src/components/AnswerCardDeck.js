@@ -24,7 +24,12 @@ let AnswerCardDeck = ({ questions, blur = true, showKey = false }) => {
       label: question.label,
       answer: question.answer,
       showAnswer: showKey || question.isCorrect,
-      markCorrect: showKey ? question.isCorrect : null,
+      markCorrect:
+        question.isCorrect === true
+          ? true
+          : showKey
+          ? question.isCorrect
+          : null,
     });
   }
 
