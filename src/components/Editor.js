@@ -75,6 +75,9 @@ let Editor = ({
 
   return (
     <Box>
+      <Typography variant="h4" component="h2" gutterBottom>
+        Game Editor
+      </Typography>
       {(Object.keys(invalid).length > 0 && (
         <Alert severity="error">
           <AlertTitle>Game Contains Errors</AlertTitle>
@@ -94,11 +97,11 @@ let Editor = ({
             The game contains zero errors and is ready for download.
           </Alert>
         ))}
-      <Typography variant="subtitle1" gutterBottom={true}>
+      <Typography variant="subtitle1">
         The presence of * indicates required fields.
       </Typography>
       <Section>
-        <Typography variant="h5" component="h2" gutterBottom={true}>
+        <Typography variant="h5" component="h2" gutterBottom>
           Header
         </Typography>
         <Grid container spacing={2}>
@@ -204,7 +207,7 @@ let Editor = ({
         </Grid>
       </Section>
       <Section>
-        <Typography variant="h5" component="h2" gutterBottom={true}>
+        <Typography variant="h5" component="h2" gutterBottom>
           Questions
         </Typography>
 
@@ -226,7 +229,7 @@ let Editor = ({
               }}
             >
               <CardContent>
-                <Typography variant="h6" component="h3" gutterBottom={true}>
+                <Typography variant="h6" component="h3" gutterBottom>
                   Question {idx + 1}
                 </Typography>
                 <Grid container spacing={2}>
