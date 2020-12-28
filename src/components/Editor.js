@@ -223,6 +223,12 @@ let Editor = ({
           </Alert>
         )}
 
+        {!wasSubmitted && game.questions.length < 3 && (
+          <Alert severity="warning">
+            A minimum of three questions is required.
+          </Alert>
+        )}
+
         {game.questions.map((q, idx) => {
           const fieldPrefix = `questions[${idx}]`;
 
