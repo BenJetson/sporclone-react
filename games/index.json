@@ -4,6 +4,10 @@
     "id": "ubuntu"
   },
   {
+    "name": "macOS Versions",
+    "id": "macos_versions"
+  },
+  {
     "name": "Spanish Capitals",
     "id": "spanish_capitals"
   },
@@ -22,5 +26,9 @@
   {
     "name": "evermore Album",
     "id": "swift_evermore"
+  },
+  {
+    "name": "UNIX Commands",
+    "id": "unix_commands"
   }
 ]
