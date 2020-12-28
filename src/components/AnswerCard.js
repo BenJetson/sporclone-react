@@ -4,6 +4,7 @@ import {
   Card,
   CardContent,
   Divider,
+  Grid,
   Typography,
   makeStyles,
 } from "@material-ui/core";
@@ -45,7 +46,6 @@ let AnswerCard = ({
   return (
     <Card variant="outlined" className={cardClass}>
       <CardContent>
-        {markCorrect !== null && (markCorrect ? <CheckCircle /> : <Error />)}
         <Typography element="p" variant="h6">
           {label}
         </Typography>
@@ -57,7 +57,16 @@ let AnswerCard = ({
           paragraph={false}
           className={classes.answerText}
         >
-          {showAnswer ? answer : <HelpOutline />}
+          <Grid container direction="row" alignItems="center" spacing={1}>
+            {markCorrect !== null && (
+              <Grid item xs={"auto"}>
+                {markCorrect ? <CheckCircle /> : <Error />}
+              </Grid>
+            )}
+            <Grid item xs>
+              {showAnswer ? answer : <HelpOutline />}
+            </Grid>
+          </Grid>
         </Typography>
       </CardContent>
     </Card>
