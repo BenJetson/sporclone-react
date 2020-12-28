@@ -70,11 +70,13 @@ let Game = ({
     }
   };
 
+  const hasImage = image && image.src && image.alt;
+
   return (
     <>
       <Section>
         <Grid container spacing={2}>
-          {image && image.src && image.alt && (
+          {hasImage && (
             <Grid item xs={"auto"}>
               <img
                 className={classes.headerImg}
@@ -83,7 +85,7 @@ let Game = ({
               />
             </Grid>
           )}
-          <Grid item xs={8}>
+          <Grid item xs={hasImage ? 8 : 9}>
             <Typography variant="h4" component="h2">
               {headline}
             </Typography>
