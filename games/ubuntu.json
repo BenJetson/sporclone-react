@@ -8,6 +8,20 @@
   },
   "questions": [
     {
+      "label": "Ubuntu 21.04",
+      "answers": {
+        "display": "Hirsute Hippo",
+        "accepts": ["Hirsute Hippo", "Hirsute"]
+      }
+    },
+    {
+      "label": "Ubuntu 20.10",
+      "answers": {
+        "display": "Groovy Gorilla",
+        "accepts": ["Groovy Gorilla", "Groovy"]
+      }
+    },
+    {
       "label": "Ubuntu 20.04 LTS",
       "answers": {
         "display": "Focal Fossa",
@@ -149,10 +163,7 @@
     },
     {
       "label": "Ubuntu 10.04 LTS",
-      "answers": {
-        "display": "Lucid Lynx",
-        "accepts": ["Lucid Lynx", "Lucid"]
-      }
+      "answers": { "display": "Lucid Lynx", "accepts": ["Lucid Lynx", "Lucid"] }
     },
     {
       "label": "Ubuntu 9.10",
@@ -198,10 +209,7 @@
     },
     {
       "label": "Ubuntu 6.10",
-      "answers": {
-        "display": "Edgy Eft",
-        "accepts": ["Edgy Eft", "Edgy"]
-      }
+      "answers": { "display": "Edgy Eft", "accepts": ["Edgy Eft", "Edgy"] }
     },
     {
       "label": "Ubuntu 6.06 LTS",
