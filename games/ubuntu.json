@@ -7,6 +7,34 @@
     "alt": "Ubuntu logo"
   },
   "questions": [
+     {
+      "label": "Ubuntu 23.04",
+      "answers": {
+        "display": "Lunar Lobster",
+        "accepts": ["Lunar Lobster", "Lunar"]
+      }
+    },
+    {
+      "label": "Ubuntu 22.10",
+      "answers": {
+        "display": "Kinetic Kudu",
+        "accepts": ["Kinetic Kudu", "Kinetic"]
+      }
+    },
+    {
+      "label": "Ubuntu 22.04 LTS",
+      "answers": {
+        "display": "Jammy Jellyfish",
+        "accepts": ["Jammy Jellyfish", "Jammy"]
+      }
+    },
+    {
+      "label": "Ubuntu 21.10",
+      "answers": {
+        "display": "Impish Indri",
+        "accepts": ["Impish Indri", "Impish"]
+      }
+    },
     {
       "label": "Ubuntu 21.04",
       "answers": {
