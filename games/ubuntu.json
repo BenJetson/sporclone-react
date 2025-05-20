@@ -8,6 +8,34 @@
   },
   "questions": [
      {
+      "label": "Ubuntu 25.04",
+      "answers": {
+        "display": "Plucky Puffin",
+        "accepts": ["Plucky Puffin", "Plucky"]
+      }
+     },
+     {
+      "label": "Ubuntu 24.10",
+      "answers": {
+        "display": "Oracular Oriole",
+        "accepts": ["Oracular Oriole", "Oracular"]
+      }
+     },
+     {
+      "label": "Ubuntu 24.04 LTS",
+      "answers": {
+        "display": "Noble Numbat",
+        "accepts": ["Noble Numbat", "Noble"]
+      }
+     },
+     {
+      "label": "Ubuntu 23.10",
+      "answers": {
+        "display": "Mantic Minotaur",
+        "accepts": ["Mantic Minotaur", "Mantic"]
+      }
+     },
+     {
       "label": "Ubuntu 23.04",
       "answers": {
         "display": "Lunar Lobster",

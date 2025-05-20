@@ -28,6 +28,10 @@
     "name": "Ubuntu Versions"
   },
   {
+    "id": "ubuntu_lts",
+    "name": "Ubuntu LTS Versions"
+  },
+  {
     "id": "unix_commands",
     "name": "UNIX Commands"
   },
