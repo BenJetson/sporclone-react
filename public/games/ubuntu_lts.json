@@ -1,0 +1,78 @@
+{
+  "time": 120,
+  "title": "Ubuntu LTS Versions",
+  "headline": "Name the codename for each Long-Term Support (LTS) version of Ubuntu.",
+  "image": {
+    "src": "https://www.bengodfrey.net/sporclone/img/ubuntu.png",
+    "alt": "Ubuntu logo"
+  },
+  "questions": [
+    {
+      "label": "Ubuntu 24.04 LTS",
+      "answers": {
+        "display": "Noble Numbat",
+        "accepts": ["Noble Numbat", "Noble"]
+      }
+    },
+    {
+      "label": "Ubuntu 22.04 LTS",
+      "answers": {
+        "display": "Jammy Jellyfish",
+        "accepts": ["Jammy Jellyfish", "Jammy"]
+      }
+    },
+    {
+      "label": "Ubuntu 20.04 LTS",
+      "answers": {
+        "display": "Focal Fossa",
+        "accepts": ["Focal Fossa", "Focal"]
+      }
+    },
+    {
+      "label": "Ubuntu 18.04 LTS",
+      "answers": {
+        "display": "Bionic Beaver",
+        "accepts": ["Bionic Beaver", "Bionic"]
+      }
+    },
+    {
+      "label": "Ubuntu 16.04 LTS",
+      "answers": {
+        "display": "Xenial Xerus",
+        "accepts": ["Xenial Xerus", "Xenial"]
+      }
+    },
+    {
+      "label": "Ubuntu 14.04 LTS",
+      "answers": {
+        "display": "Trusty Tahr",
+        "accepts": ["Trusty Tahr", "Trusty"]
+      }
+    },
+    {
+      "label": "Ubuntu 12.04 LTS",
+      "answers": {
+        "display": "Precise Pangolin",
+        "accepts": ["Precise Pangolin", "Precise"]
+      }
+    },
+    {
+      "label": "Ubuntu 10.04 LTS",
+      "answers": { "display": "Lucid Lynx", "accepts": ["Lucid Lynx", "Lucid"] }
+    },
+    {
+      "label": "Ubuntu 8.04 LTS",
+      "answers": {
+        "display": "Hardy Heron",
+        "accepts": ["Hardy Heron", "Hardy"]
+      }
+    },
+    {
+      "label": "Ubuntu 6.06 LTS",
+      "answers": {
+        "display": "Dapper Drake",
+        "accepts": ["Dapper Drake", "Dapper"]
+      }
+    }
+  ]
+}
