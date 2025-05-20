@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 python3 ./scripts/index_generator.py
 
 gh-pages -d build
