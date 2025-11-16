@@ -8,6 +8,20 @@
   },
   "questions": [
      {
+      "label": "Ubuntu 26.04",
+      "answers": {
+        "display": "Resolute Raccoon",
+        "accepts": ["Resolute Raccoon", "Resolute"]
+      }
+     },
+     {
+      "label": "Ubuntu 25.10",
+      "answers": {
+        "display": "Questing Quokka",
+        "accepts": ["Questing Quokka", "Questing"]
+      }
+     },
+     {
       "label": "Ubuntu 25.04",
       "answers": {
         "display": "Plucky Puffin",
